@@ -1,7 +1,9 @@
 <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand">Navbar</a>
     <div class="col">
-        <a routerLink="signup"  class="navbar-brand float-right mr-2">Sign Up</a>
-        <a routerLink="login"  class="navbar-brand float-right">Login</a>
+        <a routerLink="signup"  class="navbar-brand float-right mr-2" *ngIf=!loggedIn>Sign Up</a>
+        <a routerLink="login"  class="navbar-brand float-right" *ngIf=!loggedIn>Login</a>
+        <a routerLink="profile"  class="navbar-brand float-right" *ngIf=loggedIn>Profile</a>
+        <a routerLink="logout"  class="navbar-brand float-right" *ngIf=loggedIn>Logout</a>
     </div>
 </nav>
