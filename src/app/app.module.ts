@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { YoutubeService } from './services/youtube.service';
 import { TokenService } from './services/token.service';
 import { AuthService } from './services/auth.service';
+import { AfterLoginService } from './services/after-login.service';
+import { BeforeLoginService } from './services/before-login.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,7 @@ import { AuthService } from './services/auth.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [YoutubeService, TokenService, AuthService],
+  providers: [YoutubeService, TokenService, AuthService, AfterLoginService, BeforeLoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
