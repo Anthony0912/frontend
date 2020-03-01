@@ -1,37 +1,33 @@
-<div class="mt-4 col-8 offset-2">
-    <div class="card">
-      <div class="card-header">Login Here</div>
-      <div class="card-body">
-        <form #loginForm=ngForm (ngSubmit)="onSubmit()">
-  
-          <div class="alert alert-danger" [hidden]="!error">
-            {{error}}
-          </div>
-          <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-            <div class="col-sm-10">
-              <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email" [(ngModel)]="form.email" required>
-            </div>
-          </div>
-  
-          <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-            <div class="col-sm-10">
-              <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password" [(ngModel)]="form.password"
-                required>
-            </div>
-          </div>
-  
-          <div class="form-group row">
-            <div class="col-sm-10 offset-2">
-  
-              <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Sign in</button>
-  
-              <a routerLink="/signup" class="btn btn-info float-right">Sign Up</a>
-  
-            </div>
-          </div>
-        </form>
+<div class="wrapper fadeIn">
+  <div id="formContent">
+      <!-- Tabs Titles -->
+
+      <!-- Icon -->
+      <div class="fadeIn first mt-2">
+          <p class="logo size-logo text-primary"><span class="font-weight-bold">Youtube</span><span
+                  class="">Kids</span></p>
       </div>
-    </div>
+
+      <!-- Login Form -->
+      <form #loginForm=ngForm (ngSubmit)="onSubmit()">
+          <input type="email" id="email" class="fadeIn second focus" name="email" placeholder="Email"
+              [(ngModel)]="form.email" required>
+          <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password"
+              [(ngModel)]="form.password" required>
+              <div class="text-danger center" [hidden]="!error">
+                {{ error }}
+            </div>
+          <button type="submit" class="fadeIn fourth bg-primary"><span class="text-white">Log In</span></button>
+      </form>
+
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+          <a class="underlineHover" routerLink="/request-password-reset">Forgot Password?</a>
+          <br>
+          <span>- o -</span>
+          <br>
+          <span>You do not have an account? <a class="underlineHover" routerLink="/signup">Sign up here!</a></span>
+      </div>
+
   </div>
+</div>

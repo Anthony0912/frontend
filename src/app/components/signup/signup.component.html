@@ -1,57 +1,56 @@
-<div class="mt-4 col-8 offset-2">
-    <div class="card">
-        <div class="card-header">Login Here</div>
-        <div class="card-body">
-            <form #signupForm=ngForm (ngSubmit)="onSubmit()">
-                <div class="form-group row">
-                    <label for="inputname" class="col-sm-2 col-form-label">Name</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="name" class="form-control" id="inputname" placeholder="Name"
-                            [(ngModel)]="form.name" required>
-                        <div class="alert alert-danger" [hidden]="!error.name">
-                            {{error.name}}
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                    <div class="col-sm-10">
-                        <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email"
-                            [(ngModel)]="form.email" required>
-                        <div class="alert alert-danger" [hidden]="!error.email">
-                            {{error.email}}
-                        </div>
-                    </div>
-                </div>
+<div class="wrapper fadeIn">
+  <div id="formContent">
+    <!-- Tabs Titles -->
 
-                <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-                    <div class="col-sm-10">
-                        <input type="password" name="password" class="form-control" id="inputPassword3"
-                            placeholder="Password" [(ngModel)]="form.password" required>
-                        <div class="alert alert-danger" [hidden]="!error.password">
-                            {{error.password}}
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="inputPassword4" class="col-sm-2 col-form-label">Password</label>
-                    <div class="col-sm-10">
-                        <input type="password" name="password_confirmation" class="form-control" id="inputPassword4"
-                            placeholder="Password Confirmed" [(ngModel)]="form.password_confirmation" required>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <div class="col-sm-10 offset-2">
-
-                        <button type="submit" class="btn btn-primary" [disabled]="!signupForm.valid">Sign Up</button>
-
-                        <a routerLink="/login" class="btn btn-info float-right">Login</a>
-
-                    </div>
-                </div>
-            </form>
-        </div>
+    <!-- Icon -->
+    <div class="fadeIn first mt-2">
+      <p class="logo size-logo text-primary"><span class="font-weight-bold">Youtube</span><span class="">Kids</span></p>
     </div>
+
+    <!-- Login Form -->
+    <form #signupForm=ngForm (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group col-12">
+          <input type="text" id="first_name" class="fadeIn second" name="first_name" placeholder="First name"
+            [(ngModel)]="form.first_name" required><br>
+          <span class="text-danger" [hidden]="!error.first_name"> {{error.first_name}} </span>
+          <input type="text" id="last_name" class="fadeIn third" name="last_name" placeholder="Last name"
+            [(ngModel)]="form.last_name" required><br>
+          <span class="text-danger" [hidden]="!error.last_name"> {{error.last_name}} </span>
+
+          <input type="text" id="country" class="fadeIn second" name="country" placeholder="Country"
+            [(ngModel)]="form.country" required><br>
+          <span class="text-danger" [hidden]="!error.country"> {{error.country}} </span>
+
+          <input type="tel" id="cellphone" class="fadeIn third" name="cellphone" placeholder="Cellphone number"
+            [(ngModel)]="form.cellphone" required><br>
+          <span class="text-danger" [hidden]="!error.cellphone"> {{error.cellphone}} </span>
+
+          <input type="date" id="birthday" class="fadeIn second" name="birthday" placeholder="Birthday"
+            [(ngModel)]="form.birthday" required><br>
+          <span class="text-danger" [hidden]="!error.birthday"> {{error.birthday}} </span>
+
+          <input type="email" id="email" class="fadeIn third" name="email" placeholder="Email" [(ngModel)]="form.email"
+            required><br>
+          <span class="text-danger" [hidden]="!error.email"> {{error.email}} </span>
+
+          <input type="password" id="password" class="fadeIn second" name="password" placeholder="Password"
+            [(ngModel)]="form.password" required><br>
+          <span class="text-danger" [hidden]="!error.password"> {{error.password}} </span>
+
+          <input type="password" id="password_confirmation" class="fadeIn third" name="password_confirmation"
+            placeholder="Repeat password" [(ngModel)]="form.password_confirmation" required><br>
+          <span class="text-danger" [hidden]="!error.password_confirmation"> {{ error.password_confirmation }} </span>
+
+          <button type="submit" class="fadeIn fourth bg-primary"><span class="text-white">Sign Up</span></button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <span>Do you already have an account? <a class="underlineHover" routerLink="/login">log in here!</a></span>
+    </div>
+
+  </div>
 </div>

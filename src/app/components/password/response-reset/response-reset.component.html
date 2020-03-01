@@ -1,1 +1,35 @@
-<p>response-reset works!</p>
+<div class="wrapper fadeIn">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first mt-2">
+      <p class="logo size-logo text-primary"><span class="font-weight-bold">Youtube</span><span class="">Kids</span></p>
+    </div>
+    <form #ResetPasswordForm=ngForm (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <div class="col-12">
+          <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email"
+            [(ngModel)]="form.email" required> <br>
+          <div class="text-danger" [hidden]="!error.email">
+            {{error.email}}
+          </div>
+
+
+          <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password"
+            [(ngModel)]="form.password" required> <br>
+          <div class="text-danger" [hidden]="!error.password">
+            {{error.password}}
+          </div>
+          <input type="password" name="password_confirmation" class="form-control" id="inputPassword4"
+            placeholder="Password Confirmed" [(ngModel)]="form.password_confirmation" required>
+
+          <button type="submit" class="btn btn-primary" [disabled]="!ResetPasswordForm.valid">Change
+            password</button>
+        </div>
+      </div>
+    </form>
+
+    <div id="formFooter">
+    </div>
+  </div>

@@ -1,9 +1,39 @@
-<nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand">Navbar</a>
-    <div class="col">
-        <a class="navbar-brand float-right mr-2" routerLink="signup" *ngIf="!loggedIn">Sign Up</a>
-        <a class="navbar-brand float-right" routerLink="login" *ngIf="!loggedIn">Login</a>
-        <a class="navbar-brand float-right" href="#" (click)="logout($event)" *ngIf="loggedIn">Logout</a>
-        <a class="navbar-brand float-right" routerLink="/profile" *ngIf="loggedIn">Profile</a>
-    </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <a class="navbar-brand logo size-logo text-primary" href="#">
+      <span class="font-weight-bold">Youtube</span><span class="">Kids</span>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav col">
+          <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+          <div class="col align-self-end"></div>
+          <li class="nav-item active">
+              <a class="nav-link" routerLink="login" *ngIf="!loggedIn">Login</a>
+          </li>
+          <li class="nav-item active">
+              <a class="nav-link" routerLink="signup" *ngIf="!loggedIn">SignUp</a>
+          </li>
+          <li class="nav-item active">
+            <a class="navbar-brand float-right" routerLink="/profile" *ngIf="loggedIn">Profile</a>
+          </li>
+          <li class="nav-item active">
+            <a class="navbar-brand float-right" href="#" (click)="logout($event)" *ngIf="loggedIn">Logout</a>
+          </li>
+
+      </ul>
+  </div>
 </nav>

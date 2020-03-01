@@ -1,1 +1,25 @@
-<p>request-reset works!</p>
+<div class="wrapper fadeIn">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first mt-2">
+      <p class="logo size-logo text-primary"><span class="font-weight-bold">Youtube</span><span class="">Kids</span></p>
+    </div>
+
+    <!-- Login Form -->
+    <form #RequestResetForm=ngForm (ngSubmit)="onSubmit()">
+      <input type="email" id="email" class="fadeIn second focus" name="email" placeholder="Email"
+        [(ngModel)]="form.email" required>
+        <br>
+        <div class="text-danger center" [hidden]="!error">
+          {{ error }}
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!RequestResetForm.valid">Reset
+        password</button>
+  </form>
+
+  <!-- Remind Passowrd -->
+  <div id="formFooter">
+  </div>
+</div>

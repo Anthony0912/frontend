@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { YoutubeService } from 'src/app/services/youtube.service';
 import { TokenService } from 'src/app/services/token.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -11,16 +12,25 @@ import { Router } from '@angular/router';
 export class SignupComponent implements OnInit {
 
   public form = {
-    name: null,
-    email: null,
-    password: null,
+    first_name:null,
+    last_name:null,
+    country:null,
+    cellphone:null,
+    birthday:null,
+    email:null,
+    password:null,
     password_confirmation: null
   }
 
   public error = {
-    name: null,
-    email: null,
-    password: null
+    first_name:null,
+    last_name:null,
+    country:null,
+    cellphone:null,
+    birthday:null,
+    email:null,
+    password:null,
+    password_confirmation:null
   };
 
   constructor(
@@ -42,7 +52,7 @@ export class SignupComponent implements OnInit {
   }
 
   handleError(error) {
-    this.error = error.error.error;
+    this.error = error.error.errors;
   }
   ngOnInit(): void {
   }
