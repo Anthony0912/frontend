@@ -7,6 +7,9 @@ import { RequestResetComponent } from './components/password/request-reset/reque
 import { ResponseResetComponent } from './components/password/response-reset/response-reset.component';
 import { BeforeLoginService } from './services/before-login.service';
 import { AfterLoginService } from './services/after-login.service';
+import { AccountSignupComponent } from './components/verification/account-signup/account-signup.component';
+import { AccountLoginComponent } from './components/verification/account-login/account-login.component';
+import { VerificationLoadingComponent } from './components/verification/verification-loading/verification-loading.component';
 
 
 const routes: Routes = [
@@ -34,7 +37,22 @@ const routes: Routes = [
     path: 'response-password-reset',
     component: ResponseResetComponent,
     canActivate: [BeforeLoginService]
-  }
+  },
+  {
+    path: 'verification-account-signup',
+    component: AccountSignupComponent,
+    canActivate: [BeforeLoginService]
+  },
+  {
+    path: 'verification-account-login',
+    component: AccountLoginComponent,
+    canActivate: [BeforeLoginService]
+  },
+  {
+    path: 'verification-loading',
+    component: VerificationLoadingComponent,
+    canActivate: [BeforeLoginService]
+  },
 ];
 
 @NgModule({

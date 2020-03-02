@@ -16,6 +16,9 @@ import { TokenService } from './services/token.service';
 import { AuthService } from './services/auth.service';
 import { AfterLoginService } from './services/after-login.service';
 import { BeforeLoginService } from './services/before-login.service';
+import { AccountLoginComponent } from './components/verification/account-login/account-login.component';
+import { AccountSignupComponent } from './components/verification/account-signup/account-signup.component';
+import { VerificationLoadingComponent } from './components/verification/verification-loading/verification-loading.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { BeforeLoginService } from './services/before-login.service';
     SignupComponent,
     ProfileComponent,
     RequestResetComponent,
-    ResponseResetComponent
+    ResponseResetComponent,
+    AccountLoginComponent,
+    AccountSignupComponent,
+    VerificationLoadingComponent
   ],
   imports: [
     BrowserModule,

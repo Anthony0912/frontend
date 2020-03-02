@@ -24,7 +24,7 @@ export class ResponseResetComponent implements OnInit {
     private Youtube: YoutubeService,
     private router: Router
     ) {
-    route.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe(params => {
       this.form.resetToken = params['token']
     })
   }

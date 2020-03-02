@@ -19,8 +19,13 @@ export class YoutubeService {
   sendPasswordResetLink(data) {
     return this.http.post(`${this.baseUrl}/sendPasswordResetLink`, data);
   }
-  
   changePassword(data) {
     return this.http.post(`${this.baseUrl}/resetPassword`, data);
+  }
+  verificationAccountLogin(data) {
+    return this.http.post(`${this.baseUrl}/sendVerificationAccountLoginLink`, data);
+  }
+  verificationAccountSignup(data) {
+    return this.http.post(`${this.baseUrl}/VerificationAccountSignup`, data);
   }
 }

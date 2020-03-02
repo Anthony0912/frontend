@@ -41,14 +41,13 @@ export class SignupComponent implements OnInit {
 
   onSubmit(){
     this.Youtube.signup(this.form).subscribe(
-      data => this.handleResponse(data),
+      data => this.handleResponse(),
       error => this.handleError(error)
     );
   }
 
-  handleResponse(data) {
-    this.Token.handle(data.access_token);
-    this.router.navigateByUrl('/profile');
+  handleResponse() {
+    this.router.navigateByUrl('/verification-loading');
   }
 
   handleError(error) {
