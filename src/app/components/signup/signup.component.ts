@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { YoutubeService } from 'src/app/services/youtube.service';
 import { TokenService } from 'src/app/services/token.service';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -15,6 +14,7 @@ export class SignupComponent implements OnInit {
     first_name:null,
     last_name:null,
     country:null,
+    code_country:null,
     cellphone:null,
     birthday:null,
     email:null,
@@ -26,6 +26,7 @@ export class SignupComponent implements OnInit {
     first_name:null,
     last_name:null,
     country:null,
+    code_country:null,
     cellphone:null,
     birthday:null,
     email:null,
@@ -35,7 +36,6 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private Youtube: YoutubeService,
-    private Token: TokenService,
     private router: Router
     ) { }
 

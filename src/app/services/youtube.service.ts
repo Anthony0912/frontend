@@ -9,12 +9,20 @@ export class YoutubeService {
   private baseUrl = 'http://localhost:8000/api';
 
   constructor(private http: HttpClient) { }
-
-  login(data){
+  login(data) {
     return this.http.post(`${this.baseUrl}/login`, data);
   }
   signup(data) {
     return this.http.post(`${this.baseUrl}/signup`, data);
+  }
+  factorAuthentication(data){
+    return this.http.post(`${this.baseUrl}/factorAuthentication`, data);
+  }
+  factorAuthenticationResendToken(){
+    return this.http.get(`${this.baseUrl}/factorAuthenticationResendToken`);
+  }
+  vericationAccount(data) {
+    return this.http.post(`${this.baseUrl}/verificationAccount`, data);
   }
   sendPasswordResetLink(data) {
     return this.http.post(`${this.baseUrl}/sendPasswordResetLink`, data);
@@ -22,10 +30,5 @@ export class YoutubeService {
   changePassword(data) {
     return this.http.post(`${this.baseUrl}/resetPassword`, data);
   }
-  verificationAccountLogin(data) {
-    return this.http.post(`${this.baseUrl}/sendVerificationAccountLoginLink`, data);
-  }
-  verificationAccountSignup(data) {
-    return this.http.post(`${this.baseUrl}/VerificationAccountSignup`, data);
-  }
+
 }

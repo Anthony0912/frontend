@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { YoutubeService } from './services/youtube.service';
 import { TokenService } from './services/token.service';
 import { AuthService } from './services/auth.service';
+import { SessionStorageService } from './services/session-storage.service';
 import { AfterLoginService } from './services/after-login.service';
 import { BeforeLoginService } from './services/before-login.service';
 import { AccountLoginComponent } from './components/verification/account-login/account-login.component';
@@ -39,7 +40,7 @@ import { VerificationLoadingComponent } from './components/verification/verifica
     FormsModule,
     HttpClientModule
   ],
-  providers: [YoutubeService, TokenService, AuthService, AfterLoginService, BeforeLoginService],
+  providers: [YoutubeService, TokenService, AuthService, AfterLoginService, BeforeLoginService, SessionStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

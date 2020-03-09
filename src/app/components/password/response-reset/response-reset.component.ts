@@ -17,7 +17,7 @@ export class ResponseResetComponent implements OnInit {
     email: null,
     password: null,
     password_confirmation: null,
-    resetToken: null
+    verify: null
   }
   constructor(
     private route: ActivatedRoute,
@@ -25,7 +25,7 @@ export class ResponseResetComponent implements OnInit {
     private router: Router
     ) {
     this.route.queryParams.subscribe(params => {
-      this.form.resetToken = params['token']
+      this.form.verify = params['verify']
     })
   }
 

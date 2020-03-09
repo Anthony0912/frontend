@@ -44,7 +44,7 @@ const routes: Routes = [
     canActivate: [BeforeLoginService]
   },
   {
-    path: 'verification-account-login',
+    path: 'factor-authentication',
     component: AccountLoginComponent,
     canActivate: [BeforeLoginService]
   },

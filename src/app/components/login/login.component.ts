@@ -3,6 +3,7 @@ import { YoutubeService } from 'src/app/services/youtube.service';
 import { TokenService } from 'src/app/services/token.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { SessionStorageService } from 'src/app/services/session-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -20,9 +21,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private Youtube: YoutubeService,
-    private Token: TokenService,
+    private SessionStorageService: SessionStorageService,
     private router: Router,
-    private Auth: AuthService
     ) { }
 
   onSubmit(){
@@ -32,15 +32,14 @@ export class LoginComponent implements OnInit {
     );
   }
   handleResponse(data) {
-    this.Token.handle(data.access_token);
-    this.Auth.changeAuthStatus(true);
-    this.router.navigateByUrl('/profile');
+    this.SessionStorageService.handle(data);
+    this.router.navigateByUrl('/factor-authentication');
   }
 
   handleError(error) {
     this.error = error.error.error;
   }
-  
+
   ngOnInit(): void {
   }
 }

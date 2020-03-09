@@ -22,10 +22,13 @@
             [(ngModel)]="form.country" required><br>
           <span class="text-danger" [hidden]="!error.country"> {{error.country}} </span>
 
-          <input type="tel" id="cellphone" class="fadeIn third" name="cellphone" placeholder="Cellphone number"
+          <input type="text" id="code_country" class="fadeIn third" name="code_country" placeholder="Code country"
+            [(ngModel)]="form.code_country" required><br>
+          <span class="text-danger" [hidden]="!error.code_country"> {{error.code_country}} </span>
+
+          <input type="text" id="cellphone" class="fadeIn third" name="cellphone" placeholder="Cellphone number"
             [(ngModel)]="form.cellphone" required><br>
           <span class="text-danger" [hidden]="!error.cellphone"> {{error.cellphone}} </span>
-
           <input type="date" id="birthday" class="fadeIn second" name="birthday" placeholder="Birthday"
             [(ngModel)]="form.birthday" required><br>
           <span class="text-danger" [hidden]="!error.birthday"> {{error.birthday}} </span>

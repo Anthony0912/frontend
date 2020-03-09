@@ -9,7 +9,7 @@ export class TokenService {
     login : 'http://localhost:8000/api/login',
     signup : 'http://localhost:8000/api/signup',
   };
-  
+
   constructor() { }
 
   handle(token) {
@@ -21,7 +21,7 @@ export class TokenService {
   }
 
   get() {
-    return localStorage.getItem('token'); 
+    return localStorage.getItem('token');
   }
 
   remove() {
@@ -42,11 +42,11 @@ export class TokenService {
     const payload = token.split('.')[1];
     return this.decode(payload);
   }
-  
+
   decode(payload){
     return JSON.parse(atob(payload));
   }
-  
+
   loggedIn() {
     return this.isValid();
   }

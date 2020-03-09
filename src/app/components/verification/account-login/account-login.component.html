@@ -1,1 +1,27 @@
-<p>account-login works!</p>
+<div class="wrapper fadeIn">
+  <div id="formContent">
+      <!-- Tabs Titles -->
+
+      <!-- Icon -->
+      <div class="fadeIn first mt-2">
+          <p class="logo size-logo text-primary"><span class="font-weight-bold">Youtube</span><span
+                  class="">Kids</span></p>
+      </div>
+
+      <!-- Login Form -->
+      <form #factorAuthForm=ngForm (ngSubmit)="onSubmit()">
+          <input type="text" id="id_verify" class="fadeIn second focus" name="id_verify" placeholder="Token"
+              [(ngModel)]="form.id_verify" required>
+              <div class="text-danger center" [hidden]="!error">
+                {{ error }}
+            </div>
+          <button type="submit" class="fadeIn fourth bg-primary"><span class="text-white">verify</span></button>
+      </form>
+
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+          <!-- <a href="#" class="underlineHover" (click)="resendToken($event)">Resend token</a> -->
+      </div>
+  </div>
+</div>
+
