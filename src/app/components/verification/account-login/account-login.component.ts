@@ -36,12 +36,19 @@ public error = null;
       error => this.handleError(error)
     );
   }
-  // resendToken(event: MouseEvent){
-  //   event.preventDefault();
-  //   this.Youtube.factorAuthenticationResendToken().subscribe(
-  //     error => this.handleError(error)
-  //   );
-  // }
+
+  resendSms(event: MouseEvent){
+    event.preventDefault();
+    this.Youtube.resendSms(this.form).subscribe(
+      data => this.handleResponseSms(data),
+      error => this.handleError(error)
+    );
+  }
+
+
+  handleResponseSms(data) {
+    console.log(data);
+  }
 
   handleResponse(data) {
     this.Token.handle(data.access_token);
