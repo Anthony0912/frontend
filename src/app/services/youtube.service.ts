@@ -19,7 +19,7 @@ export class YoutubeService {
     return this.http.post(`${this.baseUrl}/factorAuthentication`, data);
   }
   resendSms(data){
-    return this.http.post(`${this.baseUrl}/resendSms`, data);
+    return this.http.patch(`${this.baseUrl}/resendSms`, data);
   }
   vericationAccount(data) {
     return this.http.post(`${this.baseUrl}/verificationAccount`, data);
