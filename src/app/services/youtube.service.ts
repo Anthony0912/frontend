@@ -1,24 +1,23 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class YoutubeService {
+  private baseUrl = "http://localhost:8000/api";
 
-  private baseUrl = 'http://localhost:8000/api';
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   login(data) {
     return this.http.post(`${this.baseUrl}/login`, data);
   }
   signup(data) {
     return this.http.post(`${this.baseUrl}/signup`, data);
   }
-  factorAuthentication(data){
+  factorAuthentication(data) {
     return this.http.post(`${this.baseUrl}/factorAuthentication`, data);
   }
-  resendSms(data){
+  resendSms(data) {
     return this.http.patch(`${this.baseUrl}/resendSms`, data);
   }
   vericationAccount(data) {
@@ -30,5 +29,22 @@ export class YoutubeService {
   changePassword(data) {
     return this.http.post(`${this.baseUrl}/resetPassword`, data);
   }
-
+  videoCreate(data) {
+    return this.http.post(`${this.baseUrl}/videoCreate`, data);
+  }
+  video(data) {
+    return this.http.get(`${this.baseUrl}/video/` + data);
+  }
+  videoEdit(data) {
+    return this.http.get(`${this.baseUrl}/videoEdit/` + data);
+  }
+  videoUpdate(data) {
+    return this.http.patch(`${this.baseUrl}/videoUpdate`, data);
+  }
+  videoChangeStatus(data) {
+    return this.http.get(`${this.baseUrl}/videoChangeStatus/` + data);
+  }
+  videoDelete(data) {
+    return this.http.delete(`${this.baseUrl}/video/` + data);
+  }
 }

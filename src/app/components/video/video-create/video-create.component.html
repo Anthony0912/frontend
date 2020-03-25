@@ -1,0 +1,33 @@
+<div class="wrapper fadeIn">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first mt-2">
+      <p class="logo size-logo text-primary"><span class="font-weight-bold"></span><span class="">Video</span></p>
+    </div>
+
+    <!-- Login Form -->
+    <form #videoForm=ngForm (ngSubmit)="onSubmit()">
+      <input type="text" id="name_video" class="fadeIn second focus" name="name_video" placeholder="Name video"
+        [(ngModel)]="form.name_video" required>
+      <div class="text-danger center" [hidden]="!error">
+        {{ error.name_video }}
+      </div>
+      <input type="text" id="url" class="fadeIn third" name="url" placeholder="Only iframe of youtube" [(ngModel)]="form.url" required>
+      <div class="text-danger center" [hidden]="!error">
+        {{ error.url }}
+      </div>
+      <select class="fadeIn third" name="status" id="status" [(ngModel)]="form.status">
+        <option [ngValue]=null>Select status</option>
+        <option [ngValue]=true>Activated</option>
+        <option [ngValue]=false>Disabled</option>
+      </select>
+      <div class="text-danger center" [hidden]="!error">
+        {{ error.status }}
+      </div>
+      <br />
+      <button type="submit" class="fadeIn fourth bg-success"><span class="text-white">Accept</span></button>
+    </form>
+  </div>
+</div>

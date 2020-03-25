@@ -10,6 +10,9 @@ import { AfterLoginService } from './services/after-login.service';
 import { AccountSignupComponent } from './components/verification/account-signup/account-signup.component';
 import { AccountLoginComponent } from './components/verification/account-login/account-login.component';
 import { VerificationLoadingComponent } from './components/verification/verification-loading/verification-loading.component';
+import { VideoCreateComponent } from './components/video/video-create/video-create.component';
+import { VideoComponent } from './components/video/video/video.component';
+import { VideoUpdateComponent } from './components/video/video-update/video-update.component';
 
 
 const routes: Routes = [
@@ -22,11 +25,6 @@ const routes: Routes = [
     path: 'signup',
     component: SignupComponent,
     canActivate: [BeforeLoginService]
-  },
-  {
-    path: 'profile',
-    component: ProfileComponent,
-    canActivate: [AfterLoginService]
   },
   {
     path: 'request-password-reset',
@@ -52,6 +50,26 @@ const routes: Routes = [
     path: 'verification-loading',
     component: VerificationLoadingComponent,
     canActivate: [BeforeLoginService]
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AfterLoginService]
+  },
+  {
+    path: 'video',
+    component: VideoComponent,
+    canActivate: [AfterLoginService]
+  },
+  {
+    path: 'video/video-create',
+    component: VideoCreateComponent,
+    canActivate: [AfterLoginService]
+  },
+  {
+    path: 'video/video-update',
+    component: VideoUpdateComponent,
+    canActivate: [AfterLoginService]
   },
 ];
 

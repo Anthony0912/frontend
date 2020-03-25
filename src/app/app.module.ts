@@ -20,6 +20,9 @@ import { BeforeLoginService } from './services/before-login.service';
 import { AccountLoginComponent } from './components/verification/account-login/account-login.component';
 import { AccountSignupComponent } from './components/verification/account-signup/account-signup.component';
 import { VerificationLoadingComponent } from './components/verification/verification-loading/verification-loading.component';
+import { VideoComponent } from './components/video/video/video.component';
+import { VideoCreateComponent } from './components/video/video-create/video-create.component';
+import { VideoUpdateComponent } from './components/video/video-update/video-update.component';
 
 @NgModule({
   declarations: [
@@ -32,15 +35,25 @@ import { VerificationLoadingComponent } from './components/verification/verifica
     ResponseResetComponent,
     AccountLoginComponent,
     AccountSignupComponent,
-    VerificationLoadingComponent
+    VerificationLoadingComponent,
+    VideoComponent,
+    VideoCreateComponent,
+    VideoUpdateComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [YoutubeService, TokenService, AuthService, AfterLoginService, BeforeLoginService, SessionStorageService],
+  providers: [
+    YoutubeService,
+    TokenService,
+    AuthService,
+    AfterLoginService,
+    BeforeLoginService,
+    SessionStorageService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

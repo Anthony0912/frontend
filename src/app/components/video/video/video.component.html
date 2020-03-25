@@ -1,0 +1,39 @@
+<div class="wrapper fadeIn">
+  <div class="col-12">
+    <a routerLink="video-create" class="btn btn-success mb-2 float-right">Add video</a>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">video</th>
+        <th scope="col">Name Video</th>
+        <th scope="col">Status Video</th>
+        <th scope="col">PlayList</th>
+        <th scope="col" colspan="2">Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let video of videos;">
+        <td>
+          <iframe width="450" height="315" [src]="ngUrlSafe(video.video.url)" frameborder=" 0" allowfullscreen></iframe>
+        </td>
+        <td>{{ video.video.name_video }}</td>
+        <td>
+          <button [id]="video.video.id" [className]="video.video.status ? 'btn btn-success' : 'btn btn-danger'"
+            (click)="videoChangeStatus($event)">{{ video.video.status ? 'Activated' : 'Disabled' }}</button>
+        </td>
+        <td>
+          <div *ngFor="let playlist of video.playlist;">
+            {{ playlist.name }}
+          </div>
+        </td>
+        <td>
+          <button [id]="video.video.id" class="mb-2 btn btn-warning text-white"
+            (click)="videoEdit($event)">Update</button>
+          <button [id]="video.video.id" class="btn btn-danger text-white" (click)="videoDelete($event)">Delete</button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>

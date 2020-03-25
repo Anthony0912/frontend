@@ -24,7 +24,6 @@ public error = null;
     private Token: TokenService,
     private SessionStorageService: SessionStorageService,
     private router: Router,
-    private route: ActivatedRoute,
     private Auth: AuthService
   ) {
     this.form.data = SessionStorageService.get();
