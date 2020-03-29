@@ -13,62 +13,86 @@ import { VerificationLoadingComponent } from './components/verification/verifica
 import { VideoCreateComponent } from './components/video/video-create/video-create.component';
 import { VideoComponent } from './components/video/video/video.component';
 import { VideoUpdateComponent } from './components/video/video-update/video-update.component';
+import { PlaylistComponent } from './components/playlist/playlist/playlist.component';
+import { PlaylistCreateComponent } from './components/playlist/playlist-create/playlist-create.component';
+import { PlaylistUpdateComponent } from './components/playlist/playlist-update/playlist-update.component';
+import { PlaylistVideoComponent } from './components/playlist/playlist-video/playlist-video.component';
 
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: "login",
     component: LoginComponent,
     canActivate: [BeforeLoginService]
   },
   {
-    path: 'signup',
+    path: "signup",
     component: SignupComponent,
     canActivate: [BeforeLoginService]
   },
   {
-    path: 'request-password-reset',
+    path: "request-password-reset",
     component: RequestResetComponent,
     canActivate: [BeforeLoginService]
   },
   {
-    path: 'response-password-reset',
+    path: "response-password-reset",
     component: ResponseResetComponent,
     canActivate: [BeforeLoginService]
   },
   {
-    path: 'verification-account-signup',
+    path: "verification-account-signup",
     component: AccountSignupComponent,
     canActivate: [BeforeLoginService]
   },
   {
-    path: 'factor-authentication',
+    path: "factor-authentication",
     component: AccountLoginComponent,
     canActivate: [BeforeLoginService]
   },
   {
-    path: 'verification-loading',
+    path: "verification-loading",
     component: VerificationLoadingComponent,
     canActivate: [BeforeLoginService]
   },
   {
-    path: 'profile',
+    path: "profile",
     component: ProfileComponent,
     canActivate: [AfterLoginService]
   },
   {
-    path: 'video',
+    path: "video",
     component: VideoComponent,
     canActivate: [AfterLoginService]
   },
   {
-    path: 'video/video-create',
+    path: "video/video-create",
     component: VideoCreateComponent,
     canActivate: [AfterLoginService]
   },
   {
-    path: 'video/video-update',
+    path: "video/video-update",
     component: VideoUpdateComponent,
+    canActivate: [AfterLoginService]
+  },
+  {
+    path: "playlist",
+    component: PlaylistComponent,
+    canActivate: [AfterLoginService]
+  },
+  {
+    path: "playlist/playlist-create",
+    component: PlaylistCreateComponent,
+    canActivate: [AfterLoginService]
+  },
+  {
+    path: "playlist/playlist-update",
+    component: PlaylistUpdateComponent,
+    canActivate: [AfterLoginService]
+  },
+  {
+    path: "playlist/playlist-video",
+    component: PlaylistVideoComponent,
     canActivate: [AfterLoginService]
   },
 ];

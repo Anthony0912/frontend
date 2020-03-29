@@ -23,6 +23,10 @@ import { VerificationLoadingComponent } from './components/verification/verifica
 import { VideoComponent } from './components/video/video/video.component';
 import { VideoCreateComponent } from './components/video/video-create/video-create.component';
 import { VideoUpdateComponent } from './components/video/video-update/video-update.component';
+import { PlaylistCreateComponent } from './components/playlist/playlist-create/playlist-create.component';
+import { PlaylistUpdateComponent } from './components/playlist/playlist-update/playlist-update.component';
+import { PlaylistComponent } from './components/playlist/playlist/playlist.component';
+import { PlaylistVideoComponent } from './components/playlist/playlist-video/playlist-video.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +43,10 @@ import { VideoUpdateComponent } from './components/video/video-update/video-upda
     VideoComponent,
     VideoCreateComponent,
     VideoUpdateComponent,
+    PlaylistCreateComponent,
+    PlaylistUpdateComponent,
+    PlaylistComponent,
+    PlaylistVideoComponent,
   ],
   imports: [
     BrowserModule,

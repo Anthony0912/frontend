@@ -1,33 +1,37 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <a class="navbar-brand logo size-logo text-primary" href="#">
-      <span class="font-weight-bold">Youtube</span><span class="">Kids</span>
+    <span class="font-weight-bold">Youtube</span><span class="">Kids</span>
   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav col">
-          <li class="nav-item active">
-              <a class="nav-link" routerLink="video" *ngIf="loggedIn">Videos <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="#" *ngIf="loggedIn">Create profiles <span class="sr-only">(current)</span></a>
-        </li>
-          <div class="col align-self-end"></div>
-          <li class="nav-item active">
-              <a class="nav-link" routerLink="login" *ngIf="!loggedIn">Login</a>
-          </li>
-          <li class="nav-item active">
-              <a class="nav-link" routerLink="signup" *ngIf="!loggedIn">SignUp</a>
-          </li>
-          <li class="nav-item active">
-            <a class="navbar-brand float-right" routerLink="/profile" *ngIf="loggedIn">Profile</a>
-          </li>
-          <li class="nav-item active">
-            <a class="navbar-brand float-right" href="#" (click)="logout($event)" *ngIf="loggedIn">Logout</a>
-          </li>
+    <ul class="navbar-nav col">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="video" *ngIf="loggedIn">Videos <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#" routerLink="playlist" *ngIf="loggedIn">PlayLists<span
+            class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#" *ngIf="loggedIn">Create profiles <span class="sr-only">(current)</span></a>
+      </li>
+      <div class="col align-self-end"></div>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="login" *ngIf="!loggedIn">Login</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="signup" *ngIf="!loggedIn">SignUp</a>
+      </li>
+      <li class="nav-item active">
+        <a class="navbar-brand float-right" routerLink="profile" *ngIf="loggedIn">Profile</a>
+      </li>
+      <li class="nav-item active">
+        <a class="navbar-brand float-right" href="#" (click)="logout($event)" *ngIf="loggedIn">Logout</a>
+      </li>
 
-      </ul>
+    </ul>
   </div>
 </nav>

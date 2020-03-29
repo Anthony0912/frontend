@@ -47,4 +47,19 @@ export class YoutubeService {
   videoDelete(data) {
     return this.http.delete(`${this.baseUrl}/video/` + data);
   }
+  playlistCreate(data) {
+    return this.http.post(`${this.baseUrl}/playlistCreate`, data);
+  }
+  playlist(data) {
+    return this.http.get(`${this.baseUrl}/playlist/` + data);
+  }
+  playlistEdit(data) {
+    return this.http.get(`${this.baseUrl}/playlistEdit/` + data);
+  }
+  playlistUpdate(data) {
+    return this.http.patch(`${this.baseUrl}/playlistUpdate`, data);
+  }
+  playlistDelete(data) {
+    return this.http.delete(`${this.baseUrl}/playlist/` + data);
+  }
 }

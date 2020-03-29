@@ -19,18 +19,18 @@
         </td>
         <td>{{ video.video.name_video }}</td>
         <td>
-          <button [id]="video.video.id" [className]="video.video.status ? 'btn btn-success' : 'btn btn-danger'"
+          <button [id]="video.video.id_video" [className]="video.video.status ? 'btn btn-success' : 'btn btn-danger'"
             (click)="videoChangeStatus($event)">{{ video.video.status ? 'Activated' : 'Disabled' }}</button>
         </td>
         <td>
           <div *ngFor="let playlist of video.playlist;">
-            {{ playlist.name }}
+            {{ playlist.name_playlist }}
           </div>
         </td>
         <td>
-          <button [id]="video.video.id" class="mb-2 btn btn-warning text-white"
+          <button [id]="video.video.id_video" class="mb-2 btn btn-warning text-white"
             (click)="videoEdit($event)">Update</button>
-          <button [id]="video.video.id" class="btn btn-danger text-white" (click)="videoDelete($event)">Delete</button>
+          <button [id]="video.video.id_video" class="btn btn-danger text-white" (click)="videoDelete($event)">Delete</button>
         </td>
       </tr>
 

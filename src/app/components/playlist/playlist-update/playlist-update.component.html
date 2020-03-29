@@ -1,0 +1,21 @@
+<div class="wrapper fadeIn">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first mt-2">
+      <p class="logo size-logo text-primary"><span class="font-weight-bold"></span><span class="">Video</span></p>
+    </div>
+
+    <!-- Login Form -->
+    <form #playlistUpdateForm=ngForm (ngSubmit)="onSubmit()">
+      <input type="text" id="name_playlist" class="fadeIn second focus" name="name_playlist" placeholder="Name Playlist"
+        [(ngModel)]="form.name_playlist" required>
+      <div class="text-danger center" [hidden]="!error">
+        {{ error.name_playlist }}
+      </div>
+      <br />
+      <button type="submit" class="fadeIn fourth bg-success"><span class="text-white">Accept</span></button>
+    </form>
+  </div>
+</div>
