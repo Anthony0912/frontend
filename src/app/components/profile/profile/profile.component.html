@@ -1,0 +1,32 @@
+<div class="wrapper fadeIn">
+  <div class="col-12">
+    <a routerLink="profile-password-reset" class="btn btn-primary mb-2 float-right">Change password</a>
+    <a routerLink="profile-create" class="btn btn-success mb-2 mr-2 float-right">Add profile</a>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">User</th>
+        <th scope="col">Nick</th>
+        <th scope="col">Status</th>
+        <th scope="col" colspan="2">Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let profile of profiles;">
+        <td>{{ profile.first_name }}</td>
+        <td>{{ profile.username }}</td>
+        <td>
+          <button [id]="profile.id" [className]="profile.status ? 'btn btn-success' : 'btn btn-danger'"
+            (click)="profileChangeStatus($event)">{{ profile.status ? 'Activated' : 'Disabled' }}</button>
+        </td>
+        <td>
+          <button [id]="profile.id" class="mb-2 btn btn-warning text-white"
+            (click)="profileEdit($event)">Update</button>
+          <button [id]="profile.id" class="btn btn-danger text-white"
+            (click)="profileDelete($event)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

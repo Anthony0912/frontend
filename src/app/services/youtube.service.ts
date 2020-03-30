@@ -62,4 +62,25 @@ export class YoutubeService {
   playlistDelete(data) {
     return this.http.delete(`${this.baseUrl}/playlist/` + data);
   }
+  profile(data) {
+    return this.http.get(`${this.baseUrl}/profile/` + data);
+  }
+  profileCreate(data) {
+    return this.http.post(`${this.baseUrl}/profileCreate`, data);
+  }
+  profileChangeStatus(data) {
+    return this.http.get(`${this.baseUrl}/profileChangeStatus/` + data);
+  }
+  profileEdit(data) {
+    return this.http.get(`${this.baseUrl}/profileEdit/` + data);
+  }
+  profileUpdate(data) {
+    return this.http.patch(`${this.baseUrl}/profileUpdate`, data);
+  }
+  profileDelete(data) {
+    return this.http.delete(`${this.baseUrl}/profile/` + data);
+  }
+  profilePasswordReset(data) {
+    return this.http.patch(`${this.baseUrl}/profilePasswordReset`, data);
+  }
 }

@@ -1,0 +1,46 @@
+<div class="wrapper fadeIn">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first mt-2">
+      <p class="logo size-logo text-primary"><span class="font-weight-bold"></span><span class="">Profile</span></p>
+    </div>
+
+    <!-- Login Form -->
+    <form #profileForm=ngForm (ngSubmit)="onSubmit()">
+      <input type="text" id="first_name" class="fadeIn second focus" name="first_name" placeholder="First name"
+        [(ngModel)]="form.first_name" required>
+      <div class="text-danger center" [hidden]="!error">
+        {{ error.first_name }}
+      </div>
+      <input type="text" id="last_name" class="fadeIn second focus" name="last_name" placeholder="Last name"
+        [(ngModel)]="form.last_name" required>
+      <div class="text-danger center" [hidden]="!error">
+        {{ error.last_name }}
+      </div>
+      <input type="date" id="birthday" class="fadeIn second focus" name="birthday" placeholder="Birthday"
+        [(ngModel)]="form.birthday" required>
+      <div class="text-danger center" [hidden]="!error">
+        {{ error.birthday }}
+      </div>
+      <input type="text" id="username" class="fadeIn second focus" name="username" placeholder="Username"
+        [(ngModel)]="form.username" required>
+      <div class="text-danger center" [hidden]="!error">
+        {{ error.username }}
+      </div>
+      <input type="password" id="password" class="fadeIn second focus" name="password" placeholder="Pin"
+        [(ngModel)]="form.password" required>
+      <div class="text-danger center" [hidden]="!error">
+        {{ error.password }}
+      </div>
+      <input type="password" id="password_confirmation" class="fadeIn second focus" name="password_confirmation" placeholder="Pin confirmation" [(ngModel)]="form.password_confirmation"
+        required>
+      <div class="text-danger center" [hidden]="!error">
+        {{ error.password_confirmation }}
+      </div>
+      <br />
+      <button type="submit" class="fadeIn fourth bg-success"><span class="text-white">Accept</span></button>
+    </form>
+  </div>
+</div>

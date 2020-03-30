@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
-import { ProfileComponent } from './components/profile/profile.component';
 import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './components/password/response-reset/response-reset.component';
 import { FormsModule } from '@angular/forms';
@@ -27,6 +26,10 @@ import { PlaylistCreateComponent } from './components/playlist/playlist-create/p
 import { PlaylistUpdateComponent } from './components/playlist/playlist-update/playlist-update.component';
 import { PlaylistComponent } from './components/playlist/playlist/playlist.component';
 import { PlaylistVideoComponent } from './components/playlist/playlist-video/playlist-video.component';
+import { ProfileComponent } from "./components/profile/profile/profile.component";
+import { ProfileCreateComponent } from './components/profile/profile-create/profile-create.component';
+import { ProfileUpdateComponent } from './components/profile/profile-update/profile-update.component';
+import { ProfilePasswordResetComponent } from './components/profile/profile-password-reset/profile-password-reset.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,6 @@ import { PlaylistVideoComponent } from './components/playlist/playlist-video/pla
     NavbarComponent,
     LoginComponent,
     SignupComponent,
-    ProfileComponent,
     RequestResetComponent,
     ResponseResetComponent,
     AccountLoginComponent,
@@ -47,6 +49,10 @@ import { PlaylistVideoComponent } from './components/playlist/playlist-video/pla
     PlaylistUpdateComponent,
     PlaylistComponent,
     PlaylistVideoComponent,
+    ProfileComponent,
+    ProfileCreateComponent,
+    ProfileUpdateComponent,
+    ProfilePasswordResetComponent,
   ],
   imports: [
     BrowserModule,
