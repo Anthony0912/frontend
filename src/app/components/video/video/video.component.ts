@@ -42,6 +42,7 @@ export class VideoComponent implements OnInit {
   videoShow() {
     this.Youtube.video(this.id_user).subscribe(res => {
       this.videos = res;
+      console.log(this.videos)
     });
   }
 

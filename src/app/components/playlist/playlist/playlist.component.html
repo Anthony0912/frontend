@@ -1,27 +1,23 @@
 <div class="wrapper fadeIn">
-  <div class="col-12">
+  <div class="col-lg-10 col-sm-12 col-xs-12">
     <a routerLink="playlist-create" class="btn btn-success mb-2 float-right">Add playlist</a>
   </div>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th scope="col">Name Playlist</th>
-        <th scope="col">Assigned users</th>
-        <th scope="col" colspan="2">Options</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let playlist of playlists;">
-        <td *ngIf="playlist.name_playlist != 'General'">{{ playlist.name_playlist }}</td>
-        <td *ngIf="playlist.name_playlist != 'General'"></td>
-        <td *ngIf="playlist.name_playlist != 'General'">
-          <button [id]="playlist.id" class="mb-2 btn btn-warning text-white"
-            (click)="playlistEdit($event)">Update</button>
-          <button [id]="playlist.id" class="btn btn-danger text-white"
-            (click)="playlistDelete($event)">Delete</button>
-        </td>
-      </tr>
-
-    </tbody>
-  </table>
+  <div class="row">
+    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-2" *ngFor="let playlist of playlists;">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ playlist.name_playlist }}</h5>
+          <p class="card-text"></p>
+          <div>
+            <button [id]="playlist.id" class="mr-2 btn btn-success text-white" (click)="playlistAddVideos($event)"><i
+              [id]="playlist.id" id  class="fas fa-folder-plus"></i></button>
+            <button [id]="playlist.id" class="mr-2 btn btn-warning text-white" (click)="playlistEdit($event)"><i
+              [id]="playlist.id" class="far fa-edit"></i></button>
+            <button [id]="playlist.id" class="btn btn-danger text-white" (click)="playlistDelete($event)"><i
+              [id]="playlist.id" class="far fa-trash-alt"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

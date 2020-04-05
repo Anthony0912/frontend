@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { YoutubeService } from 'src/app/services/youtube.service';
 import { TokenService } from 'src/app/services/token.service';
-import * as $ from "jquery";
 import { Router } from '@angular/router';
+import * as $ from "jquery";
 
 @Component({
   selector: "app-profile",
@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     private Youtube: YoutubeService,
     private Token: TokenService,
-    private router: Router
+    private router: Router,
   ) {
     this.id_user = Token.payload(Token.get())["sub"];
   }
@@ -25,7 +25,6 @@ export class ProfileComponent implements OnInit {
   profileShow() {
     this.Youtube.profile(this.id_user).subscribe(res => {
       this.profiles = res;
-      console.log(this.profiles);
     });
   }
   profileChangeStatus(event: any) {
@@ -68,5 +67,13 @@ export class ProfileComponent implements OnInit {
   }
   ngOnInit(): void {
     this.profileShow();
+  }
+  showOptions(event: any) {
+    let id = event.target.id;
+    $("#options" + id).css("display", "inline-flex");
+  }
+  disabledOptions(event: any) {
+    let id = event.target.id;
+    $("#options" + id).css("display", "none");
   }
 }

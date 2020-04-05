@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
+  public countries = null;
   public form = {
     first_name:null,
     last_name:null,
@@ -53,7 +54,14 @@ export class SignupComponent implements OnInit {
   handleError(error) {
     this.error = error.error.errors;
   }
+
+  getCodeCountries(){
+    this.Youtube.getCodeCountries().subscribe(res => {
+      this.countries = res;
+    });
+  }
   ngOnInit(): void {
+    this.getCodeCountries();
   }
 
 }

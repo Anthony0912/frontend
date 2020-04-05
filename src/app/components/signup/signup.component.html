@@ -4,50 +4,73 @@
 
     <!-- Icon -->
     <div class="fadeIn first mt-2">
-      <p class="logo size-logo text-primary"><span class="font-weight-bold">Youtube</span><span class="">Kids</span></p>
+      <p class="logo size-logo text-primary"><span class="font-weight-bold">Sign</span><span class="">Up</span></p>
     </div>
 
     <!-- Login Form -->
     <form #signupForm=ngForm (ngSubmit)="onSubmit()">
       <div class="form-row">
-        <div class="form-group col-12">
+        <div class="form-group col-md-6">
           <input type="text" id="first_name" class="fadeIn second" name="first_name" placeholder="First name"
             [(ngModel)]="form.first_name" required><br>
           <span class="text-danger" [hidden]="!error.first_name"> {{error.first_name}} </span>
+        </div>
+        <div class="form-group col-md-6">
           <input type="text" id="last_name" class="fadeIn third" name="last_name" placeholder="Last name"
-            [(ngModel)]="form.last_name" required><br>
+          [(ngModel)]="form.last_name" required><br>
           <span class="text-danger" [hidden]="!error.last_name"> {{error.last_name}} </span>
-
-          <input type="text" id="country" class="fadeIn second" name="country" placeholder="Country"
-            [(ngModel)]="form.country" required><br>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+            <select class="fadeIn third" name="country" id="country" [(ngModel)]="form.country">
+              <option [ngValue]=null>Select country</option>
+              <option *ngFor="let country of countries;" [ngValue]=country.name>{{ country.name }}</option>
+            </select>
+            <br>
           <span class="text-danger" [hidden]="!error.country"> {{error.country}} </span>
-
-          <input type="text" id="code_country" class="fadeIn third" name="code_country" placeholder="Code country"
-            [(ngModel)]="form.code_country" required><br>
+        </div>
+          <div class="form-group col-md-6">
+            <select class="fadeIn third" name="code_country" id="code_country" [(ngModel)]="form.code_country">
+              <option [ngValue]=null>Select code country</option>
+              <option *ngFor="let country of countries;" [ngValue]=country.code>{{ country.name +' +' + country.code }}</option>
+            </select>
+            <br>
           <span class="text-danger" [hidden]="!error.code_country"> {{error.code_country}} </span>
-
+          </div>
+        </div>
+        <div class="form-group">
           <input type="text" id="cellphone" class="fadeIn third" name="cellphone" placeholder="Cellphone number"
             [(ngModel)]="form.cellphone" required><br>
           <span class="text-danger" [hidden]="!error.cellphone"> {{error.cellphone}} </span>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
           <input type="date" id="birthday" class="fadeIn second" name="birthday" placeholder="Birthday"
             [(ngModel)]="form.birthday" required><br>
           <span class="text-danger" [hidden]="!error.birthday"> {{error.birthday}} </span>
-
+          </div>
+          <div class="form-group col-md-6">
           <input type="email" id="email" class="fadeIn third" name="email" placeholder="Email" [(ngModel)]="form.email"
             required><br>
           <span class="text-danger" [hidden]="!error.email"> {{error.email}} </span>
+          </div>
+        </div>
 
+        <div class="form-row">
+          <div class="form-group col-md-6">
           <input type="password" id="password" class="fadeIn second" name="password" placeholder="Password"
             [(ngModel)]="form.password" required><br>
           <span class="text-danger" [hidden]="!error.password"> {{error.password}} </span>
-
+          </div>
+          <div class="form-group col-md-6">
           <input type="password" id="password_confirmation" class="fadeIn third" name="password_confirmation"
             placeholder="Repeat password" [(ngModel)]="form.password_confirmation" required><br>
           <span class="text-danger" [hidden]="!error.password_confirmation"> {{ error.password_confirmation }} </span>
-
-          <button type="submit" class="fadeIn fourth bg-primary"><span class="text-white">Sign Up</span></button>
+          </div>
         </div>
-      </div>
+          <button type="submit" class="fadeIn fourth bg-primary"><span class="text-white">Sign Up</span></button>
+
     </form>
 
     <!-- Remind Passowrd -->

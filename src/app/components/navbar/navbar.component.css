@@ -5,3 +5,11 @@
 .size-logo {
   font-size: xx-large;
 }
+#navbar-nav {
+  align-items: flex-end;
+}
+@media (max-width: 991px) {
+  #navbar-nav {
+    align-items: flex-start;
+  }
+}

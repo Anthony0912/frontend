@@ -7,12 +7,15 @@ import { HttpClient } from "@angular/common/http";
 export class YoutubeService {
   private baseUrl = "http://localhost:8000/api";
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   login(data) {
     return this.http.post(`${this.baseUrl}/login`, data);
   }
   signup(data) {
     return this.http.post(`${this.baseUrl}/signup`, data);
+  }
+  getCodeCountries() {
+    return this.http.get(`${this.baseUrl}/countries`);
   }
   factorAuthentication(data) {
     return this.http.post(`${this.baseUrl}/factorAuthentication`, data);
@@ -62,6 +65,12 @@ export class YoutubeService {
   playlistDelete(data) {
     return this.http.delete(`${this.baseUrl}/playlist/` + data);
   }
+  videoPlaylistCreate(data) {
+    return this.http.post(`${this.baseUrl}/videoPlaylistCreate`, data);
+  }
+  videoPlaylist( id_user, id_playlist) {
+    return this.http.get(`${this.baseUrl}/videoPlaylist/${id_user}/${id_playlist}`);
+  }
   profile(data) {
     return this.http.get(`${this.baseUrl}/profile/` + data);
   }
@@ -83,4 +92,5 @@ export class YoutubeService {
   profilePasswordReset(data) {
     return this.http.patch(`${this.baseUrl}/profilePasswordReset`, data);
   }
+
 }

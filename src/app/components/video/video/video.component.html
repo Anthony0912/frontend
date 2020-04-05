@@ -2,38 +2,31 @@
   <div class="col-12">
     <a routerLink="video-create" class="btn btn-success mb-2 float-right">Add video</a>
   </div>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th scope="col">video</th>
-        <th scope="col">Name Video</th>
-        <th scope="col">Status Video</th>
-        <th scope="col">PlayList</th>
-        <th scope="col" colspan="2">Options</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let video of videos;">
-        <td>
-          <iframe width="450" height="315" [src]="ngUrlSafe(video.video.url)" frameborder=" 0" allowfullscreen></iframe>
-        </td>
-        <td>{{ video.video.name_video }}</td>
-        <td>
-          <button [id]="video.video.id_video" [className]="video.video.status ? 'btn btn-success' : 'btn btn-danger'"
-            (click)="videoChangeStatus($event)">{{ video.video.status ? 'Activated' : 'Disabled' }}</button>
-        </td>
-        <td>
-          <div *ngFor="let playlist of video.playlist;">
-            {{ playlist.name_playlist }}
+  <div class="row">
+    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-2" *ngFor="let video of videos;">
+      <div class="card ">
+        <iframe class="video-iframe" [src]="ngUrlSafe(video.video.url)" frameborder=" 0" allowfullscreen></iframe>
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ video.video.name_video }}</h5>
+          <p class="card-text">
+            Playlist:
+          </p>
+          <ul class="navbar-nav">
+            <li *ngFor="let playlist of video.playlist;">
+              {{ playlist.name_playlist != "General" ?  playlist.name_playlist : "This video has not been assigned a playlist"}}
+            </li>
+          </ul>
+          <div>
+            <button [id]="video.video.id_video" class="mr-2 mt-2"
+              [className]="video.video.status ? 'btn btn-success' : 'btn btn-danger'"
+              (click)="videoChangeStatus($event)">{{ video.video.status ? 'Activated' : 'Disabled' }}</button>
+            <button [id]="video.video.id_video" class="mr-2 mt-2 btn btn-warning text-white"
+              (click)="videoEdit($event)">Update</button>
+            <button [id]="video.video.id_video" class="mr-2 mt-2 btn btn-danger text-white"
+              (click)="videoDelete($event)">Delete</button>
           </div>
-        </td>
-        <td>
-          <button [id]="video.video.id_video" class="mb-2 btn btn-warning text-white"
-            (click)="videoEdit($event)">Update</button>
-          <button [id]="video.video.id_video" class="btn btn-danger text-white" (click)="videoDelete($event)">Delete</button>
-        </td>
-      </tr>
-
-    </tbody>
-  </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

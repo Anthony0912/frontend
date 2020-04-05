@@ -38,7 +38,7 @@ export class ProfileUpdateComponent implements OnInit {
 
   handleResponse(data) {
     localStorage.removeItem('id_profile');
-    //this.router.navigateByUrl("/profile");
+    this.router.navigateByUrl("/profile");
   }
 
   handleError(error) {

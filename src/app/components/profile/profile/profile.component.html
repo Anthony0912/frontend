@@ -1,32 +1,27 @@
-<div class="wrapper fadeIn">
-  <div class="col-12">
-    <a routerLink="profile-password-reset" class="btn btn-primary mb-2 float-right">Change password</a>
-    <a routerLink="profile-create" class="btn btn-success mb-2 mr-2 float-right">Add profile</a>
+<div class="wrapper fadeIn first">
+  <div class="col-lg-8 col-md-12 col-sm-12 mb-3">
+    <a routerLink="profile-create" class="btn btn-success ml-2 float-right">Add profile</a>
+    <a routerLink="profile-password-reset" class="btn btn-primary  float-right">Change password</a>
   </div>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th scope="col">User</th>
-        <th scope="col">Nick</th>
-        <th scope="col">Status</th>
-        <th scope="col" colspan="2">Options</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let profile of profiles;">
-        <td>{{ profile.first_name }}</td>
-        <td>{{ profile.username }}</td>
-        <td>
-          <button [id]="profile.id" [className]="profile.status ? 'btn btn-success' : 'btn btn-danger'"
-            (click)="profileChangeStatus($event)">{{ profile.status ? 'Activated' : 'Disabled' }}</button>
-        </td>
-        <td>
-          <button [id]="profile.id" class="mb-2 btn btn-warning text-white"
-            (click)="profileEdit($event)">Update</button>
-          <button [id]="profile.id" class="btn btn-danger text-white"
-            (click)="profileDelete($event)">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3 fadeIn first mb-2" *ngFor="let profile of profiles;"
+      style="width:150px;">
+      <div style="width:140px;">
+        <div class="contenedor">
+          <img (mouseover)="showOptions($event)" (mouseout)="disabledOptions($event)" [id]="profile.id"
+            [src]="'/assets/img/' + profile.image.name_img" [alt]="profile.image.name_img" width="135" height="132">
+          <div (mouseover)="showOptions($event)" (mouseout)="disabledOptions($event)" [id]="'options'+profile.id"
+            class="center-div">
+            <button [id]="profile.id" class="boton float-right" (click)="profileEdit($event)" style="width: 70px;"><i
+                class="fas fa-user-edit text-white"></i></button>
+            <button [id]="profile.id" class="boton" (click)="profileDelete($event)" style="width: 70px;"><i
+                class="far fa-trash-alt text-white"></i></button>
+          </div>
+        </div>
+        <p class="text-center">
+          {{ profile.first_name + ' ' + profile.last_name }}</p>
+        <p class="text-center">{{ profile.username }}</p>
+      </div>
+    </div>
+  </div>
 </div>

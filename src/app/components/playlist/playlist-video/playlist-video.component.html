@@ -1,1 +1,29 @@
-<p>playlist-video works!</p>
+<div class="wrapper fadeIn">
+  <div class="fadeIn first mt-2">
+    <p class="logo size-logo text-primary"><span class="font-weight-bold"></span><span class="">Add videos to
+        playlist</span></p>
+  </div>
+  <table class="table table-sm table-hover table-striped table-bordered">
+    <thead>
+      <tr>
+        <th></th>
+        <th class="text-center" scope="col">Name video</th>
+        <th class="text-center" scope="col">Status</th>
+        <th class="text-center" scope="col">video</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let video of videos;">
+        <td>
+          <button [id]="video.video.id_video" class="mr-2 mt-2"
+            [className]="video.playlist.length > 0 ? 'btn btn-danger' : 'btn btn-success'"
+            (click)="addVideoToPlayList($event)">{{ video.playlist.length > 0 ? 'Delete playlist' : 'Add playlist' }}</button>
+        </td>
+        <td>{{ video.video.name_video }}</td>
+        <td>{{ video.video.status ? 'Activated' : 'Disabled' }}</td>
+        <td><iframe class="video-iframe" [src]="ngUrlSafe(video.video.url)" frameborder=" 0" allowfullscreen></iframe>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

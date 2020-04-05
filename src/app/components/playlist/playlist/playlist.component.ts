@@ -40,4 +40,10 @@ export class PlaylistComponent implements OnInit {
       this.playlistShow();
     });
   }
+  playlistAddVideos(event){
+    event.preventDefault();
+    let id = event.target.id;
+    localStorage.setItem("id_playlist", id);
+    this.router.navigateByUrl("playlist/playlist-video");
+  }
 }

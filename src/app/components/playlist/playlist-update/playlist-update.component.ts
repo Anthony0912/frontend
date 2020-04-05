@@ -24,7 +24,6 @@ export class PlaylistUpdateComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form);
     this.Youtube.playlistUpdate(this.form).subscribe(
       data => this.handleResponse(data),
       error => this.handleError(error)
@@ -41,7 +40,6 @@ export class PlaylistUpdateComponent implements OnInit {
     });
   }
   handleResponse(data) {
-    console.log(data);
     localStorage.removeItem("id_playlist");
     this.router.navigateByUrl("/playlist");
   }
