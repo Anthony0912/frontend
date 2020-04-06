@@ -11,6 +11,7 @@ import { TokenService } from "src/app/services/token.service";
 export class NavbarComponent implements OnInit {
   public loggedIn: boolean;
   public navbarOpen = false;
+  public navbarCollapsed = false;
 
   constructor(
     private Auth: AuthService,
@@ -30,5 +31,8 @@ export class NavbarComponent implements OnInit {
   }
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
+  }
+  toggleProfile() {
+    this.navbarCollapsed = !this.navbarCollapsed;
   }
 }

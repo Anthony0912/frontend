@@ -20,6 +20,7 @@ import { ProfileComponent } from "./components/profile/profile/profile.component
 import { ProfileCreateComponent } from './components/profile/profile-create/profile-create.component';
 import { ProfileUpdateComponent } from './components/profile/profile-update/profile-update.component';
 import { ProfilePasswordResetComponent } from './components/profile/profile-password-reset/profile-password-reset.component';
+import { SettingAccountComponent } from './components/setting/setting-account/setting-account.component';
 
 const routes: Routes = [
   {
@@ -111,6 +112,11 @@ const routes: Routes = [
     path: "profile/profile-password-reset",
     component: ProfilePasswordResetComponent,
     canActivate: [AfterLoginService]
+  },
+  {
+    path: "setting/setting-account",
+    component: SettingAccountComponent,
+    canActivate: [AfterLoginService]
   }
 ];
 
@@ -118,4 +124,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

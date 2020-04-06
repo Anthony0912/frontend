@@ -8,8 +8,19 @@
 #navbar-nav {
   align-items: flex-end;
 }
+
+#navprofile{
+  padding-left: 65px;
+}
+
 @media (max-width: 991px) {
   #navbar-nav {
     align-items: flex-start;
+  }
+  #navprofile{
+    padding-left: 0px;
+  }
+  #navprofoptions{
+    min-width: 100%;
   }
 }

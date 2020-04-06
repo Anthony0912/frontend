@@ -14,6 +14,12 @@ export class YoutubeService {
   signup(data) {
     return this.http.post(`${this.baseUrl}/signup`, data);
   }
+  settingAccountEdit(data) {
+    return this.http.get(`${this.baseUrl}/settingAccount/${data}`);
+  }
+  settingAccountUpdate(data) {
+    return this.http.patch(`${this.baseUrl}/settingAccount`, data);
+  }
   getCodeCountries() {
     return this.http.get(`${this.baseUrl}/countries`);
   }
@@ -36,58 +42,58 @@ export class YoutubeService {
     return this.http.post(`${this.baseUrl}/videoCreate`, data);
   }
   video(data) {
-    return this.http.get(`${this.baseUrl}/video/` + data);
+    return this.http.get(`${this.baseUrl}/video/${data}`);
   }
   videoEdit(data) {
-    return this.http.get(`${this.baseUrl}/videoEdit/` + data);
+    return this.http.get(`${this.baseUrl}/videoEdit/${data}`);
   }
   videoUpdate(data) {
     return this.http.patch(`${this.baseUrl}/videoUpdate`, data);
   }
   videoChangeStatus(data) {
-    return this.http.get(`${this.baseUrl}/videoChangeStatus/` + data);
+    return this.http.get(`${this.baseUrl}/videoChangeStatus/${data}`);
   }
   videoDelete(data) {
-    return this.http.delete(`${this.baseUrl}/video/` + data);
+    return this.http.delete(`${this.baseUrl}/video/${data}`);
   }
   playlistCreate(data) {
     return this.http.post(`${this.baseUrl}/playlistCreate`, data);
   }
   playlist(data) {
-    return this.http.get(`${this.baseUrl}/playlist/` + data);
+    return this.http.get(`${this.baseUrl}/playlist/${data}`);
   }
   playlistEdit(data) {
-    return this.http.get(`${this.baseUrl}/playlistEdit/` + data);
+    return this.http.get(`${this.baseUrl}/playlistEdit/${data}`);
   }
   playlistUpdate(data) {
     return this.http.patch(`${this.baseUrl}/playlistUpdate`, data);
   }
   playlistDelete(data) {
-    return this.http.delete(`${this.baseUrl}/playlist/` + data);
+    return this.http.delete(`${this.baseUrl}/playlist/${data}`);
   }
   videoPlaylistCreate(data) {
     return this.http.post(`${this.baseUrl}/videoPlaylistCreate`, data);
   }
-  videoPlaylist( id_user, id_playlist) {
+  videoPlaylist(id_user, id_playlist) {
     return this.http.get(`${this.baseUrl}/videoPlaylist/${id_user}/${id_playlist}`);
   }
   profile(data) {
-    return this.http.get(`${this.baseUrl}/profile/` + data);
+    return this.http.get(`${this.baseUrl}/profile/${data}`);
   }
   profileCreate(data) {
     return this.http.post(`${this.baseUrl}/profileCreate`, data);
   }
   profileChangeStatus(data) {
-    return this.http.get(`${this.baseUrl}/profileChangeStatus/` + data);
+    return this.http.get(`${this.baseUrl}/profileChangeStatus/${data}`);
   }
   profileEdit(data) {
-    return this.http.get(`${this.baseUrl}/profileEdit/` + data);
+    return this.http.get(`${this.baseUrl}/profileEdit/${data}`);
   }
   profileUpdate(data) {
     return this.http.patch(`${this.baseUrl}/profileUpdate`, data);
   }
   profileDelete(data) {
-    return this.http.delete(`${this.baseUrl}/profile/` + data);
+    return this.http.delete(`${this.baseUrl}/profile/${data}`);
   }
   profilePasswordReset(data) {
     return this.http.patch(`${this.baseUrl}/profilePasswordReset`, data);

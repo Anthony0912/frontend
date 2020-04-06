@@ -30,6 +30,7 @@ import { ProfileComponent } from "./components/profile/profile/profile.component
 import { ProfileCreateComponent } from './components/profile/profile-create/profile-create.component';
 import { ProfileUpdateComponent } from './components/profile/profile-update/profile-update.component';
 import { ProfilePasswordResetComponent } from './components/profile/profile-password-reset/profile-password-reset.component';
+import { SettingAccountComponent } from './components/setting/setting-account/setting-account.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { ProfilePasswordResetComponent } from './components/profile/profile-pass
     ProfileCreateComponent,
     ProfileUpdateComponent,
     ProfilePasswordResetComponent,
+    SettingAccountComponent,
   ],
   imports: [
     BrowserModule,
