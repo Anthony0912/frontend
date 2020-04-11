@@ -20,7 +20,8 @@ export class SignupComponent implements OnInit {
     birthday:null,
     email:null,
     password:null,
-    password_confirmation: null
+    password_confirmation: null,
+    role: "adult"
   }
 
   public error = {

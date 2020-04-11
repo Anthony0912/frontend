@@ -15,8 +15,9 @@
         <div class="text-danger center" [hidden]="!error">
           {{ error }}
       </div>
-      <button type="submit" class="btn btn-primary" [disabled]="!RequestResetForm.valid">Reset
-        password</button>
+      <button type="submit" class="fadeIn fourth bg-primary" [disabled]="!RequestResetForm.valid">
+        <span class="text-white" >Reset password</span>
+      </button>
   </form>
 
   <!-- Remind Passowrd -->

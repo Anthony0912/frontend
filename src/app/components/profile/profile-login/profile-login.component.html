@@ -1,0 +1,44 @@
+<div class="wrapper fadeIn">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first mt-2">
+      <p class="logo size-logo text-primary">
+        <span class="font-weight-bold">Log</span><span class="">in</span>
+      </p>
+    </div>
+
+    <!-- Login Form -->
+    <form #profileloginForm="ngForm" (ngSubmit)="onSubmit()">
+      <input
+        type="text"
+        id="username"
+        class="fadeIn second focus"
+        name="username"
+        placeholder="Username"
+        [(ngModel)]="form.username"
+        required
+      />
+      <input
+        type="password"
+        id="password"
+        class="fadeIn third"
+        name="password"
+        placeholder="Pin"
+        [(ngModel)]="form.password"
+        required
+      />
+      <div class="text-danger center" [hidden]="!error">
+        {{ error }}
+      </div>
+      <button type="submit" class="fadeIn fourth bg-primary">
+        <span class="text-white">Log In</span>
+      </button>
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+    </div>
+  </div>
+</div>

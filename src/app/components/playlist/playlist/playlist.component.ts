@@ -12,15 +12,15 @@ export class PlaylistComponent implements OnInit {
   public id_user = null;
   public playlists = null;
   public error = null;
+  public payload = null;
 
   constructor(private Youtube: YoutubeService, private Token: TokenService, private router: Router) {
-    this.id_user = Token.payload(Token.get())["sub"];
+    this.id_user = this.Token.payload(this.Token.get())["sub"];
   }
 
   ngOnInit(): void {
     this.playlistShow();
   }
-
   playlistShow() {
     this.Youtube.playlist(this.id_user).subscribe(res => {
       this.playlists = res;
@@ -40,7 +40,7 @@ export class PlaylistComponent implements OnInit {
       this.playlistShow();
     });
   }
-  playlistAddVideos(event){
+  playlistAddVideos(event) {
     event.preventDefault();
     let id = event.target.id;
     localStorage.setItem("id_playlist", id);

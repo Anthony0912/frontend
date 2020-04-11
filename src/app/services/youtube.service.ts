@@ -89,6 +89,12 @@ export class YoutubeService {
   profileEdit(data) {
     return this.http.get(`${this.baseUrl}/profileEdit/${data}`);
   }
+  showPlaylistInProfile(data) {
+    return this.http.get(`${this.baseUrl}/profile/playlists/${data}`);
+  }
+  getVideosInProfile(data) {
+    return this.http.get(`${this.baseUrl}/profile/playlists/videos/${data}`);
+  }
   profileUpdate(data) {
     return this.http.patch(`${this.baseUrl}/profileUpdate`, data);
   }
@@ -97,6 +103,9 @@ export class YoutubeService {
   }
   profilePasswordReset(data) {
     return this.http.patch(`${this.baseUrl}/profilePasswordReset`, data);
+  }
+  profileLogin(data){
+    return this.http.post(`${this.baseUrl}/profileLogin`, data);
   }
 
 }

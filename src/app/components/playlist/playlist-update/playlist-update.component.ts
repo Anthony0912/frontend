@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { YoutubeService } from "src/app/services/youtube.service";
 import { Router } from '@angular/router';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: "app-playlist-update",
@@ -19,10 +20,13 @@ export class PlaylistUpdateComponent implements OnInit {
     name_playlist: null
   };
 
-  constructor(private Youtube: YoutubeService, private router: Router) {
+  constructor(private Youtube: YoutubeService, private router: Router, private Token: TokenService) {
     this.id = localStorage.getItem("id_playlist");
   }
 
+  ngOnInit(): void {
+    this.playlistEdit();
+  }
   onSubmit() {
     this.Youtube.playlistUpdate(this.form).subscribe(
       data => this.handleResponse(data),
@@ -30,7 +34,8 @@ export class PlaylistUpdateComponent implements OnInit {
     );
   }
 
-  ngOnInit(): void {
+
+  playlistEdit() {
     this.Youtube.playlistEdit(this.id).subscribe(res => {
       this.playlist = res;
       this.form = {

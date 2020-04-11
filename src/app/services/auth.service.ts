@@ -13,5 +13,11 @@ export class AuthService {
     this.loggedIn.next(value);
   }
 
+  isValidOptionNavbarRole(){
+    if (this.Token.loggedIn()) {
+      return this.Token.payload(this.Token.get())['role'] == 'adult' ? true : false;
+    }
+  }
+
   constructor(private Token: TokenService) { }
 }

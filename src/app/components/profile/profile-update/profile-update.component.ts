@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { YoutubeService } from 'src/app/services/youtube.service';
 import { Router } from '@angular/router';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: "app-profile-update",
@@ -25,8 +26,12 @@ export class ProfileUpdateComponent implements OnInit {
     username: null
   };
 
-  constructor(private Youtube: YoutubeService, private router: Router) {
+  constructor(private Youtube: YoutubeService, private router: Router, private Token: TokenService) {
     this.id_profile = localStorage.getItem("id_profile");
+  }
+
+  ngOnInit(): void {
+    this.profileEdit();
   }
 
   onSubmit() {
@@ -44,8 +49,7 @@ export class ProfileUpdateComponent implements OnInit {
   handleError(error) {
     this.error = error.error.errors;
   }
-
-  ngOnInit(): void {
+  profileEdit() {
     this.Youtube.profileEdit(this.id_profile).subscribe(res => {
       this.profile = res;
       this.form = {

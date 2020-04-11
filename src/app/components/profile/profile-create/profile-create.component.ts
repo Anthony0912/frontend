@@ -9,15 +9,17 @@ import { TokenService } from 'src/app/services/token.service';
   styleUrls: ["./profile-create.component.css"]
 })
 export class ProfileCreateComponent implements OnInit {
+
   public form = {
-    id_user:null,
+    id_user: null,
     first_name: null,
     last_name: null,
     birthday: null,
     status: true,
     username: null,
     password: null,
-    password_confirmation: null
+    password_confirmation: null,
+    role: "children"
   };
 
   public error = {
@@ -31,6 +33,9 @@ export class ProfileCreateComponent implements OnInit {
 
   constructor(private Youtube: YoutubeService, private router: Router, private Token: TokenService) {
     this.form.id_user = Token.payload(Token.get())["sub"];
+  }
+
+  ngOnInit(): void {
   }
 
   onSubmit() {
@@ -48,6 +53,4 @@ export class ProfileCreateComponent implements OnInit {
   handleError(error) {
     this.error = error.error.errors;
   }
-
-  ngOnInit(): void {}
 }

@@ -14,12 +14,16 @@ export class ProfileComponent implements OnInit {
   public profiles = null;
   public status = null;
   public error = null;
+
   constructor(
     private Youtube: YoutubeService,
     private Token: TokenService,
     private router: Router,
   ) {
     this.id_user = Token.payload(Token.get())["sub"];
+  }
+  ngOnInit(): void {
+    this.profileShow();
   }
 
   profileShow() {
@@ -64,9 +68,6 @@ export class ProfileComponent implements OnInit {
       this.error = res;
       this.profileShow();
     });
-  }
-  ngOnInit(): void {
-    this.profileShow();
   }
   showOptions(event: any) {
     let id = event.target.id;

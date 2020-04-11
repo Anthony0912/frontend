@@ -53,7 +53,7 @@ public error = null;
     this.Token.handle(data.access_token);
     this.Auth.changeAuthStatus(true);
     this.SessionStorageService.remove();
-    this.router.navigateByUrl('/profile');
+    this.router.navigateByUrl('/');
   }
 
   handleError(error) {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { YoutubeService } from 'src/app/services/youtube.service';
 import { TokenService } from 'src/app/services/token.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-setting-account',
@@ -12,6 +13,7 @@ export class SettingAccountComponent implements OnInit {
   public countries = null;
   public user = null;
   public id_user = null;
+  public role = null;
   public form = {
     id:null,
     first_name: null,
@@ -33,8 +35,13 @@ export class SettingAccountComponent implements OnInit {
     email: null
   };
 
-  constructor(private Youtube: YoutubeService, private Token: TokenService) {
+  constructor(private Youtube: YoutubeService, private Token: TokenService, private router: Router) {
     this.id_user = Token.payload(Token.get())["sub"];
+  }
+
+  ngOnInit(): void {
+    this.getCodeCountries();
+    this.settingAccountEdit();
   }
 
   getCodeCountries() {
@@ -71,9 +78,4 @@ export class SettingAccountComponent implements OnInit {
       }
     })
   }
-  ngOnInit(): void {
-    this.getCodeCountries();
-    this.settingAccountEdit();
-  }
-
 }

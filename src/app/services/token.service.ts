@@ -6,8 +6,9 @@ import { Injectable } from '@angular/core';
 export class TokenService {
 
   private iss = {
-    login : 'http://localhost:8000/api/login',
-    signup : 'http://localhost:8000/api/signup',
+    login: 'http://localhost:8000/api/login',
+    signup: 'http://localhost:8000/api/signup',
+    profile: 'http://localhost:8000/api/profileLogin'
   };
 
   constructor() { }
@@ -39,11 +40,11 @@ export class TokenService {
     return false;
   }
   payload(token) {
-    const payload = token.split('.')[1];
-    return this.decode(payload);
+      const payload = token.split('.')[1];
+      return this.decode(payload);
   }
 
-  decode(payload){
+  decode(payload) {
     return JSON.parse(atob(payload));
   }
 

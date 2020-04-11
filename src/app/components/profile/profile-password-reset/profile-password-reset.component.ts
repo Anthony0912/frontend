@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { YoutubeService } from 'src/app/services/youtube.service';
 import { Router } from '@angular/router';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: "app-profile-password-reset",
@@ -20,7 +21,10 @@ export class ProfilePasswordResetComponent implements OnInit {
     password_confirmation: null
   };
 
-  constructor(private Youtube: YoutubeService, private router: Router) {}
+  constructor(private Youtube: YoutubeService, private router: Router, private Token: TokenService) {}
+
+  ngOnInit(): void {
+  }
 
   onSubmit() {
     this.Youtube.profilePasswordReset(this.form).subscribe(
@@ -36,6 +40,4 @@ export class ProfilePasswordResetComponent implements OnInit {
   handleError(error) {
     this.error = error.error.errors;
   }
-
-  ngOnInit(): void {}
 }

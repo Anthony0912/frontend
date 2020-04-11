@@ -9,6 +9,7 @@ import { TokenService } from "src/app/services/token.service";
   styleUrls: ["./video-create.component.css"]
 })
 export class VideoCreateComponent implements OnInit {
+  public role = null;
   public form = {
     name_video: null,
     url: null,
@@ -30,6 +31,8 @@ export class VideoCreateComponent implements OnInit {
   ) {
     this.form.id_user = Token.payload(Token.get())["sub"];
   }
+  ngOnInit(): void {
+  }
 
   onSubmit() {
     this.Youtube.videoCreate(this.form).subscribe(
@@ -46,6 +49,4 @@ export class VideoCreateComponent implements OnInit {
   handleError(error) {
     this.error = error.error.errors;
   }
-
-  ngOnInit(): void {}
 }

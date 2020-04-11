@@ -31,6 +31,9 @@ import { ProfileCreateComponent } from './components/profile/profile-create/prof
 import { ProfileUpdateComponent } from './components/profile/profile-update/profile-update.component';
 import { ProfilePasswordResetComponent } from './components/profile/profile-password-reset/profile-password-reset.component';
 import { SettingAccountComponent } from './components/setting/setting-account/setting-account.component';
+import { ProfileLoginComponent } from './components/profile/profile-login/profile-login.component';
+import { ProfileHomeComponent } from './components/profile/profile-home/profile-home.component';
+import { RoleService } from './services/role.service';
 
 @NgModule({
   declarations: [
@@ -55,6 +58,8 @@ import { SettingAccountComponent } from './components/setting/setting-account/se
     ProfileUpdateComponent,
     ProfilePasswordResetComponent,
     SettingAccountComponent,
+    ProfileLoginComponent,
+    ProfileHomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +73,8 @@ import { SettingAccountComponent } from './components/setting/setting-account/se
     AuthService,
     AfterLoginService,
     BeforeLoginService,
-    SessionStorageService
+    SessionStorageService,
+    RoleService
   ],
   bootstrap: [AppComponent]
 })

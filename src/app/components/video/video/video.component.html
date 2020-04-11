@@ -8,12 +8,15 @@
         <iframe class="video-iframe" [src]="ngUrlSafe(video.video.url)" frameborder=" 0" allowfullscreen></iframe>
         <div class="card-body">
           <h5 class="card-title text-center">{{ video.video.name_video }}</h5>
-          <p class="card-text">
-            Playlist:
-          </p>
-          <ul class="navbar-nav">
-            <li *ngFor="let playlist of video.playlist;">
-              {{ playlist.name_playlist != "General" ?  playlist.name_playlist : "This video has not been assigned a playlist"}}
+          <ul style="list-style:none;">
+            <span>
+              Playlist:
+            </span>
+            <li *ngFor="let playlist of video.playlist;" >
+              <span *ngIf="playlist.name_playlist != 'General'"><i class="fas fa-list"></i> {{ playlist.name_playlist }}</span><br>
+            </li>
+            <li>
+              <span *ngIf="video.playlist.length === 1"><i class="fas fa-list"></i> No playlist has been assigned </span><br>
             </li>
           </ul>
           <div>

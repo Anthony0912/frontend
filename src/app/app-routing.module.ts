@@ -21,6 +21,9 @@ import { ProfileCreateComponent } from './components/profile/profile-create/prof
 import { ProfileUpdateComponent } from './components/profile/profile-update/profile-update.component';
 import { ProfilePasswordResetComponent } from './components/profile/profile-password-reset/profile-password-reset.component';
 import { SettingAccountComponent } from './components/setting/setting-account/setting-account.component';
+import { ProfileLoginComponent } from './components/profile/profile-login/profile-login.component';
+import { ProfileHomeComponent } from './components/profile/profile-home/profile-home.component';
+import { RoleService } from './services/role.service';
 
 const routes: Routes = [
   {
@@ -61,62 +64,111 @@ const routes: Routes = [
   {
     path: "video",
     component: VideoComponent,
-    canActivate: [AfterLoginService]
+    canActivate: [AfterLoginService],
+    data: {
+      allowedRoles: ['adult']
+    }
   },
   {
     path: "video/video-create",
     component: VideoCreateComponent,
-    canActivate: [AfterLoginService]
+    canActivate: [AfterLoginService],
+    data: {
+      allowedRoles: ['adult']
+    }
   },
   {
     path: "video/video-update",
     component: VideoUpdateComponent,
-    canActivate: [AfterLoginService]
+    canActivate: [AfterLoginService],
+    data: {
+      allowedRoles: ['adult']
+    }
   },
   {
     path: "playlist",
     component: PlaylistComponent,
-    canActivate: [AfterLoginService]
+    canActivate: [AfterLoginService],
+    data: {
+      allowedRoles: ['adult']
+    }
   },
   {
     path: "playlist/playlist-create",
     component: PlaylistCreateComponent,
-    canActivate: [AfterLoginService]
+    canActivate: [AfterLoginService],
+    data: {
+      allowedRoles: ['adult']
+    }
   },
   {
     path: "playlist/playlist-update",
     component: PlaylistUpdateComponent,
-    canActivate: [AfterLoginService]
+    canActivate: [AfterLoginService],
+    data: {
+      allowedRoles: ['adult']
+    }
   },
   {
     path: "playlist/playlist-video",
     component: PlaylistVideoComponent,
-    canActivate: [AfterLoginService]
+    canActivate: [AfterLoginService],
+    data: {
+      allowedRoles: ['adult']
+    }
   },
   {
     path: "profile",
     component: ProfileComponent,
-    canActivate: [AfterLoginService]
+    canActivate: [AfterLoginService],
+    data: {
+      allowedRoles: ['adult']
+    }
   },
   {
     path: "profile/profile-create",
     component: ProfileCreateComponent,
-    canActivate: [AfterLoginService]
+    canActivate: [AfterLoginService],
+    data: {
+      allowedRoles: ['adult']
+    }
   },
   {
     path: "profile/profile-update",
     component: ProfileUpdateComponent,
-    canActivate: [AfterLoginService]
+    canActivate: [AfterLoginService],
+    data: {
+      allowedRoles: ['adult']
+    }
   },
   {
     path: "profile/profile-password-reset",
     component: ProfilePasswordResetComponent,
-    canActivate: [AfterLoginService]
+    canActivate: [AfterLoginService],
+    data: {
+      allowedRoles: ['adult']
+    }
   },
   {
     path: "setting/setting-account",
     component: SettingAccountComponent,
-    canActivate: [AfterLoginService]
+    canActivate: [AfterLoginService],
+    data: {
+      allowedRoles: ['adult']
+    }
+  },
+  {
+    path: "profile/login",
+    component: ProfileLoginComponent,
+    canActivate: [BeforeLoginService],
+  },
+  {
+    path: "profile/home",
+    component: ProfileHomeComponent,
+    canActivate: [AfterLoginService],
+    data: {
+      allowedRoles: ['children']
+    }
   }
 ];
 

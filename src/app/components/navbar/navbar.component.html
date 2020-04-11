@@ -9,14 +9,14 @@
   <div class="collapse navbar-collapse" [ngClass]="{ show: navbarOpen }" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link" routerLink="video" *ngIf="loggedIn">Videos <span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="video" *ngIf="role && loggedIn">Videos <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#" routerLink="playlist" *ngIf="loggedIn">PlayLists<span
+        <a class="nav-link" href="#" routerLink="playlist" *ngIf="role && loggedIn">PlayLists<span
             class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" routerLink="profile" *ngIf="loggedIn">Create profiles <span
+        <a class="nav-link" routerLink="profile" *ngIf="role && loggedIn">Create profiles <span
             class="sr-only">(current)</span></a>
       </li>
     </ul>
@@ -28,7 +28,7 @@
         <a class="nav-link" routerLink="signup" *ngIf="!loggedIn">Sign Up</a>
       </li>
       <li>
-        <a class="btn btn-danger text-white ml-3">Login Children</a>
+        <a class="btn btn-danger text-white ml-3" routerLink="/profile/login" *ngIf="!loggedIn">Login Children</a>
       </li>
       <li id="navprofile" class="nav-item dropdown" *ngIf="loggedIn">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
@@ -37,7 +37,7 @@
         </a>
         <div id="navprofoptions" class="dropdown-menu" [ngClass]="{ show: navbarCollapsed }"
           aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" routerLink="setting/setting-account" *ngIf="loggedIn">My account</a>
+          <a class="dropdown-item" routerLink="setting/setting-account" *ngIf="role && loggedIn">My account</a>
           <a class="dropdown-item" (click)="logout($event)" *ngIf="loggedIn">Logout</a>
         </div>
       </li>

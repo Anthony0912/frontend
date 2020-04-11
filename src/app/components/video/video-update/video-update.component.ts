@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { YoutubeService } from "src/app/services/youtube.service";
 import { Router } from "@angular/router";
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: "app-video-update",
@@ -21,8 +22,12 @@ export class VideoUpdateComponent implements OnInit {
     name_video: null,
     url: null
   };
-  constructor(private Youtube: YoutubeService, private router: Router) {
+  constructor(private Youtube: YoutubeService, private router: Router, private Token: TokenService) {
     this.id = localStorage.getItem("id_video");
+  }
+
+  ngOnInit(): void {
+    this.videoEdit();
   }
 
   onSubmit() {
@@ -41,7 +46,7 @@ export class VideoUpdateComponent implements OnInit {
     this.error = error.error.errors;
   }
 
-  ngOnInit(): void {
+  videoEdit(){
     this.Youtube.videoEdit(this.id).subscribe(res => {
       this.video = res
       this.form = {

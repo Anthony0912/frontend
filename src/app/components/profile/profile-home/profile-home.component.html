@@ -1,0 +1,23 @@
+<div class="wrapper fadeIn">
+  <div class="sidenav">
+    <div *ngFor="let playlist of playlists;">
+      <hr>
+      <a class="text-center logo" [id]="playlist.id" (click)="onSubmit($event)">{{ playlist.name }}</a>
+      <hr>
+    </div>
+  </div>
+  <div class="main">
+    <div class="row">
+      <div class="col-md-6 col-xs-12" *ngFor="let video of videos;">
+        <div class="card ">
+          <iframe class="video-iframe" [src]="ngUrlSafe(video.url)" frameborder=" 0" allowfullscreen></iframe>
+          <div class="card-body">
+            <h5 class="card-title text-center">{{ video.name_video }}</h5>
+            <div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

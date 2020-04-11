@@ -24,6 +24,8 @@ export class PlaylistCreateComponent implements OnInit {
     this.form.id_user = Token.payload(Token.get())["sub"];
   }
 
+  ngOnInit(): void {
+  }
   onSubmit() {
     this.Youtube.playlistCreate(this.form).subscribe(
       data => this.handleResponse(data),
@@ -38,5 +40,4 @@ export class PlaylistCreateComponent implements OnInit {
   handleError(error) {
     this.error = error.error.errors;
   }
-  ngOnInit(): void {}
 }
