@@ -7,22 +7,25 @@
       <p class="logo size-logo text-primary"><span class="font-weight-bold"></span><span class="">Video</span></p>
     </div>
 
-    <!-- Login Form -->
-    <form #videoUpdateForm=ngForm (ngSubmit)="onSubmit()">
-      <input type="text" id="name_video" class="fadeIn second focus" name="name_video" placeholder="Name video"
-        [(ngModel)]="form.name_video" required>
-      <div class="text-danger center" [hidden]="!error">
-        {{ error.name_video }}
-
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+      <input type="text" id="name_video" formControlName="name_video" class="fadeIn second focus"
+        placeholder="Name video" required>
+      <div *ngIf="name_video.invalid && (name_video.dirty || name_video.touched)" class="text-danger">
+        <div *ngIf="name_video.errors.required">
+          Video name is required.
+        </div>
       </div>
-      <input type="text" id="url" class="fadeIn third" name="url" placeholder="Only iframe of youtube"
-        [(ngModel)]="form.url" required>
-      <div class="text-danger center" [hidden]="!error">
+      <input type="text" id="url" formControlName="url" class="fadeIn third" placeholder="Only iframe of youtube" required>
+      <div *ngIf="url.invalid && (url.dirty || url.touched)" class="text-danger">
+        <div *ngIf="url.errors.required">
+          Url is required.
+        </div>
+      </div>
+      <div class="text-danger center" [attr.disabled]="!error">
         {{ error.url }}
       </div>
       <br />
-      <button type="submit" class="fadeIn fourth bg-success"><span class="text-white">Accept</span></button>
+      <button type="submit" class="fadeIn fourth bg-success" [disabled]="!form.valid"><span class="text-white">Accept</span></button>
     </form>
   </div>
 </div>
-

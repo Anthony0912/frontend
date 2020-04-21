@@ -4,6 +4,7 @@ import { TokenService } from 'src/app/services/token.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { SessionStorageService } from 'src/app/services/session-storage.service';
+import * as $ from "jquery";
 
 @Component({
   selector: 'app-account-login',
@@ -58,9 +59,13 @@ public error = null;
 
   handleError(error) {
     this.error = error.error.errors ? error.error.errors.id_verify : error.error.error;
+    $("#errorToken").show();
   }
 
   ngOnInit(): void {
+    $("#id_verify").keydown(function () {
+      $("#errorToken").hide();
+    });
   }
 
 }

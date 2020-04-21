@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { YoutubeService } from 'src/app/services/youtube.service';
+import * as $ from "jquery";
 
 @Component({
   selector: 'app-request-reset',
@@ -15,6 +16,9 @@ export class RequestResetComponent implements OnInit {
   constructor(private Youtube: YoutubeService) { }
 
   ngOnInit(): void {
+    $("#email").keydown(function () {
+      $("#errorEmail").hide();
+    });
   }
   onSubmit() {
     this.Youtube.sendPasswordResetLink(this.form).subscribe(
@@ -23,12 +27,13 @@ export class RequestResetComponent implements OnInit {
     )
   }
 
-  handleResponse(res){
+  handleResponse(res) {
     console.log(res);
     this.form.email = null
   }
   handleError(error) {
-    this.error = error.error.error;
+    this.error = error.error.errors;
+    $("#errorEmail").show();
   }
 
 }

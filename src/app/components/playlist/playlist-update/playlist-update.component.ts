@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { YoutubeService } from "src/app/services/youtube.service";
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/token.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import * as $ from "jquery";
 
 @Component({
   selector: "app-playlist-update",
@@ -11,10 +13,7 @@ import { TokenService } from 'src/app/services/token.service';
 export class PlaylistUpdateComponent implements OnInit {
   public playlist = null;
   public id = null;
-  public form = {
-    id: this.id,
-    name_playlist: null
-  };
+  public form: FormGroup;
 
   public error = {
     name_playlist: null
@@ -26,9 +25,10 @@ export class PlaylistUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.playlistEdit();
+    this.clearValidationErrorServer();
   }
   onSubmit() {
-    this.Youtube.playlistUpdate(this.form).subscribe(
+    this.Youtube.playlistUpdate(this.form.value).subscribe(
       data => this.handleResponse(data),
       error => this.handleError(error)
     );
@@ -38,10 +38,10 @@ export class PlaylistUpdateComponent implements OnInit {
   playlistEdit() {
     this.Youtube.playlistEdit(this.id).subscribe(res => {
       this.playlist = res;
-      this.form = {
-        id: this.id,
-        name_playlist: this.playlist.name_playlist
-      };
+      this.form = new FormGroup({
+        'name_playlist': new FormControl(this.playlist.name_playlist, Validators.required),
+        'id': new FormControl(this.id),
+      });
     });
   }
   handleResponse(data) {
@@ -50,6 +50,14 @@ export class PlaylistUpdateComponent implements OnInit {
   }
 
   handleError(error) {
-    this.error = error.error.errors;
+    this.error = error.error.error;
+    $("#errorNamePlaylist").show();
   }
+
+  clearValidationErrorServer() {
+    $("#name_playlist").keydown(function () {
+      $("#errorNamePlaylist").hide();
+    });
+  }
+  get name_playlist() { return this.form.get('name_playlist'); }
 }

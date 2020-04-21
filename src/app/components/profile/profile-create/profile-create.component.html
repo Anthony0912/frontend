@@ -7,40 +7,66 @@
       <p class="logo size-logo text-primary"><span class="font-weight-bold"></span><span class="">Profile</span></p>
     </div>
 
-    <!-- Login Form -->
-    <form #profileForm=ngForm (ngSubmit)="onSubmit()">
-      <input type="text" id="first_name" class="fadeIn second focus" name="first_name" placeholder="First name"
-        [(ngModel)]="form.first_name" required>
-      <div class="text-danger center" [hidden]="!error">
-        {{ error.first_name }}
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+      <input type="text" id="first_name" formControlName="first_name" class="fadeIn second focus" placeholder="First name" required>
+      <div *ngIf="first_name.invalid && (first_name.dirty || first_name.touched)" class="text-danger">
+        <div *ngIf="first_name.errors.required">
+          First name is required.
+        </div>
       </div>
-      <input type="text" id="last_name" class="fadeIn second focus" name="last_name" placeholder="Last name"
-        [(ngModel)]="form.last_name" required>
-      <div class="text-danger center" [hidden]="!error">
-        {{ error.last_name }}
+      <input type="text" id="last_name" formControlName="last_name" class="fadeIn second focus" placeholder="Last name" required>
+      <div *ngIf="last_name.invalid && (last_name.dirty || last_name.touched)" class="text-danger">
+        <div *ngIf="last_name.errors.required">
+          Last name is required.
+        </div>
       </div>
-      <input type="date" id="birthday" class="fadeIn second focus" name="birthday" placeholder="Birthday"
-        [(ngModel)]="form.birthday" required>
-      <div class="text-danger center" [hidden]="!error">
-        {{ error.birthday }}
+      <input type="date" id="birthday" formControlName="birthday" class="fadeIn second focus" placeholder="Birthday" required>
+      <div *ngIf="birthday.invalid && (birthday.dirty || birthday.touched)" class="text-danger">
+        <div *ngIf="birthday.errors.required">
+          Birthday is required.
+        </div>
       </div>
-      <input type="text" id="username" class="fadeIn second focus" name="username" placeholder="Username"
-        [(ngModel)]="form.username" required>
-      <div class="text-danger center" [hidden]="!error">
+      <input type="text" id="username" formControlName="username" class="fadeIn second focus" placeholder="Username" required>
+      <div *ngIf="username.invalid && (username.dirty || username.touched)" class="text-danger">
+        <div *ngIf="username.errors.required">
+          Username is required.
+        </div>
+      </div>
+      <div class="text-danger" id="errorUsername" [attr.disabled]="!error">
         {{ error.username }}
       </div>
-      <input type="password" id="password" class="fadeIn second focus" name="password" placeholder="Pin"
-        [(ngModel)]="form.password" required>
-      <div class="text-danger center" [hidden]="!error">
-        {{ error.password }}
+      <input type="password" id="password" formControlName="password" class="fadeIn second focus" placeholder="Pin" required>
+      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+        <div *ngIf="password.errors.required">
+          Pin is required.
+        </div>
+        <div *ngIf="password.errors.maxlength">
+          Pin must be at 6 numbers long.
+        </div>
+        <div *ngIf="password.errors.pattern">
+          Number only.
+        </div>
       </div>
-      <input type="password" id="password_confirmation" class="fadeIn second focus" name="password_confirmation" placeholder="Pin confirmation" [(ngModel)]="form.password_confirmation"
+      <input type="password" id="password_confirmation" formControlName="password_confirmation" class="fadeIn second focus" placeholder="Pin confirmation"
         required>
-      <div class="text-danger center" [hidden]="!error">
-        {{ error.password_confirmation }}
+      <div *ngIf="password_confirmation.invalid && (password_confirmation.dirty || password_confirmation.touched)"
+        class="text-danger">
+        <div *ngIf="password_confirmation.errors.required">
+          Pin confirmation is required.
+        </div>
+        <div *ngIf="password_confirmation.errors.maxlength">
+          Pin must be at 6 numbers long.
+        </div>
+        <div *ngIf="password_confirmation.errors.pattern">
+          Number only.
+        </div>
+      </div>
+      <div class="text-danger" *ngIf="!this.checkPasswords()">
+        Pin do not match.
       </div>
       <br />
-      <button type="submit" class="fadeIn fourth bg-success"><span class="text-white">Accept</span></button>
+      <button type="submit" class="fadeIn fourth bg-success" [disabled]="!form.valid"><span
+          class="text-white">Accept</span></button>
     </form>
   </div>
 </div>

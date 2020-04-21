@@ -8,15 +8,18 @@
       </p>
     </div>
 
-    <!-- Login Form -->
-    <form #playlistUpdateForm=ngForm (ngSubmit)="onSubmit()">
-      <input type="text" id="name_playlist" class="fadeIn second focus" name="name_playlist" placeholder="Name Playlist"
-        [(ngModel)]="form.name_playlist" required>
-      <div class="text-danger center" [hidden]="!error">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+      <input type="text" id="name_playlist" formControlName="name_playlist" class="fadeIn second focus" placeholder="Name Playlist" required>
+      <div *ngIf="name_playlist.invalid && (name_playlist.dirty || name_playlist.touched)" class="text-danger">
+        <div *ngIf="name_playlist.errors.required">
+          Name playlist is required.
+        </div>
+      </div>
+      <div class="text-danger center" id="errorNamePlaylist" [attr.disabled]="!error">
         {{ error.name_playlist }}
       </div>
       <br />
-      <button type="submit" class="fadeIn fourth bg-success"><span class="text-white">Accept</span></button>
+      <button type="submit" class="fadeIn fourth bg-success" [disabled]="!form.valid"><span class="text-white">Accept</span></button>
     </form>
   </div>
 </div>

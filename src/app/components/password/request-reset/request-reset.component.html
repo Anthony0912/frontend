@@ -12,8 +12,8 @@
       <input type="email" id="email" class="fadeIn second focus" name="email" placeholder="Email"
         [(ngModel)]="form.email" required>
         <br>
-        <div class="text-danger center" [hidden]="!error">
-          {{ error }}
+        <div class="text-danger center" id="errorEmail" [hidden]="!error">
+          {{ error.email }}
       </div>
       <button type="submit" class="fadeIn fourth bg-primary" [disabled]="!RequestResetForm.valid">
         <span class="text-white" >Reset password</span>

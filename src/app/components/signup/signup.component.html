@@ -8,68 +8,124 @@
     </div>
 
     <!-- Login Form -->
-    <form #signupForm=ngForm (ngSubmit)="onSubmit()">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <input type="text" id="first_name" class="fadeIn second" name="first_name" placeholder="First name"
-            [(ngModel)]="form.first_name" required><br>
-          <span class="text-danger" [hidden]="!error.first_name"> {{error.first_name}} </span>
+          <input type="text" id="first_name" formControlName="first_name" class="fadeIn second" placeholder="First name"
+            required>
+          <div *ngIf="first_name.invalid && (first_name.dirty || first_name.touched)" class="text-danger">
+            <div *ngIf="first_name.errors.required">
+              First name is required.
+            </div>
+          </div>
         </div>
         <div class="form-group col-md-6">
-          <input type="text" id="last_name" class="fadeIn third" name="last_name" placeholder="Last name"
-          [(ngModel)]="form.last_name" required><br>
-          <span class="text-danger" [hidden]="!error.last_name"> {{error.last_name}} </span>
+          <input type="text" id="last_name" formControlName="last_name" class="fadeIn third" placeholder="Last name"
+            required>
+          <div *ngIf="last_name.invalid && (last_name.dirty || last_name.touched)" class="text-danger">
+            <div *ngIf="last_name.errors.required">
+              Last name is required.
+            </div>
+          </div>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-            <select class="fadeIn third" name="country" id="country" [(ngModel)]="form.country">
-              <option [ngValue]=null>Select country</option>
-              <option *ngFor="let country of countries;" [ngValue]=country.name>{{ country.name }}</option>
-            </select>
-            <br>
-          <span class="text-danger" [hidden]="!error.country"> {{error.country}} </span>
-        </div>
-          <div class="form-group col-md-6">
-            <select class="fadeIn third" name="code_country" id="code_country" [(ngModel)]="form.code_country">
-              <option [ngValue]=null>Select code country</option>
-              <option *ngFor="let country of countries;" [ngValue]=country.code>{{ country.name +' +' + country.code }}</option>
-            </select>
-            <br>
-          <span class="text-danger" [hidden]="!error.code_country"> {{error.code_country}} </span>
+          <select class="fadeIn third" id="country" formControlName="country">
+            <option [ngValue]=null>Select country</option>
+            <option *ngFor="let country of countries;" [ngValue]=country.name>{{ country.name }}</option>
+          </select>
+          <div *ngIf="country.invalid && (country.dirty || country.touched)" class="text-danger">
+            <div *ngIf="country.errors.required">
+              Country is required.
+            </div>
           </div>
         </div>
-        <div class="form-group">
-          <input type="text" id="cellphone" class="fadeIn third" name="cellphone" placeholder="Cellphone number"
-            [(ngModel)]="form.cellphone" required><br>
-          <span class="text-danger" [hidden]="!error.cellphone"> {{error.cellphone}} </span>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-          <input type="date" id="birthday" class="fadeIn second" name="birthday" placeholder="Birthday"
-            [(ngModel)]="form.birthday" required><br>
-          <span class="text-danger" [hidden]="!error.birthday"> {{error.birthday}} </span>
-          </div>
-          <div class="form-group col-md-6">
-          <input type="email" id="email" class="fadeIn third" name="email" placeholder="Email" [(ngModel)]="form.email"
-            required><br>
-          <span class="text-danger" [hidden]="!error.email"> {{error.email}} </span>
+        <div class="form-group col-md-6">
+          <select class="fadeIn third" id="code_country" formControlName="code_country">
+            <option [ngValue]=null>Select code country</option>
+            <option *ngFor="let country of countries;" [ngValue]=country.code>{{ country.name +' +' + country.code }}
+            </option>
+          </select>
+          <div *ngIf="code_country.invalid && (code_country.dirty || code_country.touched)" class="text-danger">
+            <div *ngIf="code_country.errors.required">
+              Code country is required.
+            </div>
           </div>
         </div>
-
-        <div class="form-row">
-          <div class="form-group col-md-6">
-          <input type="password" id="password" class="fadeIn second" name="password" placeholder="Password"
-            [(ngModel)]="form.password" required><br>
-          <span class="text-danger" [hidden]="!error.password"> {{error.password}} </span>
+      </div>
+      <div class="form-group">
+        <input type="text" id="cellphone" formControlName="cellphone" class="fadeIn third"
+          placeholder="Cellphone number" required>
+        <div *ngIf="cellphone.invalid && (cellphone.dirty || cellphone.touched)" class="text-danger">
+          <div *ngIf="cellphone.errors.required">
+            Cellphone is required.
           </div>
-          <div class="form-group col-md-6">
-          <input type="password" id="password_confirmation" class="fadeIn third" name="password_confirmation"
-            placeholder="Repeat password" [(ngModel)]="form.password_confirmation" required><br>
-          <span class="text-danger" [hidden]="!error.password_confirmation"> {{ error.password_confirmation }} </span>
+          <div *ngIf="cellphone.errors.pattern">
+            Cellphone is only numbers.
           </div>
         </div>
-          <button type="submit" class="fadeIn fourth bg-primary"><span class="text-white">Sign Up</span></button>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <input type="date" id="birthday" formControlName="birthday" class="fadeIn second" placeholder="Birthday"
+            required>
+          <div *ngIf="birthday.invalid && (birthday.dirty || birthday.touched)" class="text-danger">
+            <div *ngIf="birthday.errors.required">
+              Birthday is required.
+            </div>
+          </div>
+          <div class="text-danger" id="errorBirthday" [hidden]="!error">
+            {{ error.birthday }}
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <input type="email" id="email" formControlName="email" class="fadeIn third" placeholder="Email" required>
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+            <div *ngIf="email.errors.required">
+              Email is required.
+            </div>
+            <div *ngIf="email.errors.pattern">
+              Email does not have a valid format.
+            </div>
+          </div>
+          <div class="text-danger" id="errorEmail" [hidden]="!error">
+            {{ error.email }}
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <input type="password" id="password" formControlName="password" class="fadeIn second" placeholder="Password"
+            required>
+          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+            <div *ngIf="password.errors.required">
+              Password is required.
+            </div>
+            <div *ngIf="password.errors.minlength">
+              Password min be at 8 characters long.
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <input type="password" id="password_confirmation" formControlName="password_confirmation" class="fadeIn third"
+            placeholder="Repeat password" required>
+          <div *ngIf="password_confirmation.invalid && (password_confirmation.dirty || password_confirmation.touched)"
+            class="text-danger">
+            <div *ngIf="password_confirmation.errors.required">
+              Password confirmation is required.
+            </div>
+            <div *ngIf="password_confirmation.errors.minlength">
+              Password confirmation min be at 8 characters long.
+            </div>
+          </div>
+          <div class="text-danger" *ngIf="!this.checkPasswords()">
+            Passwords do not match.
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="fadeIn fourth bg-primary" [disabled]="!form.valid"><span class="text-white">Sign
+          Up</span></button>
 
     </form>
 
