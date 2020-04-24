@@ -12,11 +12,16 @@ import * as $ from "jquery";
 })
 export class VideoComponent implements OnInit {
   public urlSafe: SafeResourceUrl;
-  public error = null;
+  public error = {
+    videos: null
+  };
+  public delete = null;
   public video = null;
   public videos = null;
   public status = null;
   public id_user = null;
+  public video_search = null;
+  public text = "";
 
   constructor(
     private Youtube: YoutubeService,
@@ -42,7 +47,6 @@ export class VideoComponent implements OnInit {
   videoShow() {
     this.Youtube.video(this.id_user).subscribe(res => {
       this.videos = res;
-      console.log(this.videos)
     });
   }
 
@@ -90,10 +94,27 @@ export class VideoComponent implements OnInit {
     event.preventDefault();
     let id = event.target.id;
     this.Youtube.videoDelete(id).subscribe(res => {
-      this.error = res;
+      this.delete = res;
       this.videoShow();
     });
   }
+
+  onKeydown() {
+    this.text = $("#search").val();
+    if (this.text.length > 3) {
+      let data = { id: this.id_user, search: this.text };
+      this.videoSearch(data);
+    }else if(this.text.length === 0){
+      this.videoShow();
+    }
+  }
+
+  videoSearch(data) {
+    this.Youtube.videoSearch(data).subscribe(res => {
+      this.videos = res;
+    });
+  }
+
   handleResponse(data) {
     console.log(data);
   }

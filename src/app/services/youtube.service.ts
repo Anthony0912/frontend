@@ -47,6 +47,9 @@ export class YoutubeService {
   videoEdit(data) {
     return this.http.get(`${this.baseUrl}/videoEdit/${data}`);
   }
+  videoSearch(data) {
+    return this.http.get(`${this.baseUrl}/videoSearch/${data.id}/${data.search}`);
+  }
   videoUpdate(data) {
     return this.http.patch(`${this.baseUrl}/videoUpdate`, data);
   }
@@ -91,6 +94,9 @@ export class YoutubeService {
   }
   showPlaylistInProfile(data) {
     return this.http.get(`${this.baseUrl}/profile/playlists/${data}`);
+  }
+  videoSearchProfile(data) {
+    return this.http.get(`${this.baseUrl}/profile/search/${data.id}/${data.search}`);
   }
   getVideosInProfile(data) {
     return this.http.get(`${this.baseUrl}/profile/playlists/videos/${data}`);

@@ -54,7 +54,7 @@ public error = null;
     this.Token.handle(data.access_token);
     this.Auth.changeAuthStatus(true);
     this.SessionStorageService.remove();
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/video');
   }
 
   handleError(error) {

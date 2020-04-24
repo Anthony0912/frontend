@@ -1,9 +1,10 @@
 <div class="wrapper fadeIn">
-  <div class="col-12">
-    <a routerLink="video-create" class="btn btn-success mb-2 float-right">Add video</a>
+  <div class="col-md-12">
+    <a routerLink="video-create" class="btn btn-success ml-3 mt-2 float-right">Add video</a>
+    <input type="text" id="search" class="col-md-4 fadeIn third float-right mb-4" placeholder="Search" (keydown)="onKeydown()">
   </div>
   <div class="row">
-    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-2" *ngFor="let video of videos;">
+    <div class="col-lg-6 col-xs-12 mb-2" *ngFor="let video of videos;">
       <div class="card ">
         <iframe class="video-iframe" [src]="ngUrlSafe(video.video.url)" frameborder=" 0" allowfullscreen></iframe>
         <div class="card-body">
@@ -12,11 +13,13 @@
             <span>
               Playlist:
             </span>
-            <li *ngFor="let playlist of video.playlist;" >
-              <span *ngIf="playlist.name_playlist != 'General'"><i class="fas fa-list"></i> {{ playlist.name_playlist }}</span><br>
+            <li *ngFor="let playlist of video.playlist;">
+              <span *ngIf="playlist.name_playlist != 'General'"><i class="fas fa-list"></i>
+                {{ playlist.name_playlist }}</span><br>
             </li>
             <li>
-              <span *ngIf="video.playlist.length === 1"><i class="fas fa-list"></i> No playlist has been assigned </span><br>
+              <span *ngIf="video.playlist.length === 1"><i class="fas fa-list"></i> No playlist has been assigned
+              </span><br>
             </li>
           </ul>
           <div>
@@ -27,6 +30,17 @@
               (click)="videoEdit($event)">Update</button>
             <button [id]="video.video.id_video" class="mr-2 mt-2 btn btn-danger text-white"
               (click)="videoDelete($event)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="center col-12" id="errorVideos" *ngIf="videos?.length === 0 && text?.length > 3">
+    <div class="wrapper fadeIn">
+      <div id="formContent fadeIn first mt-2">
+        <div class="">
+          <div class="container">
+            <p class="lead">Not data related to <span class="text-danger">{{ text }}</span></p>
           </div>
         </div>
       </div>
