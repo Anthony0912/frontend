@@ -6,9 +6,7 @@ import { Injectable } from '@angular/core';
 export class TokenService {
 
   private iss = {
-    login: 'https://youtubekids-fronted.herokuapp.com/api/login',
-    signup: 'https://youtubekids-fronted.herokuapp.com/api/signup',
-    profile: 'https://youtubekids-fronted.herokuapp.com/api/profileLogin'
+    login: 'http://youtubekids-api.herokuapp.com/api/login'
   };
 
   constructor() { }
@@ -33,6 +31,11 @@ export class TokenService {
     const token = this.get();
     if (token) {
       const payload = this.payload(token);
+      console.log(Object.values(this.iss.login).indexOf(payload.iss));
+      console.log(this.iss);
+      console.log(payload.iss);
+      
+      
       if (payload) {
         return Object.values(this.iss).indexOf(payload.iss) > -1 ? true : false;
       }
