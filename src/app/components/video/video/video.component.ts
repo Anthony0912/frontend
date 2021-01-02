@@ -37,7 +37,9 @@ export class VideoComponent implements OnInit {
   }
 
   ngUrlSafe(url) {
-    this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    const array = url.split("=");
+    const newUrl = `https://www.youtube.com/embed/${array[1]}` 
+    this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(newUrl);
     return this.urlSafe;
   }
 
@@ -121,4 +123,5 @@ export class VideoComponent implements OnInit {
   handleError(error) {
     this.error = error.error.errors;
   }
+  
 }

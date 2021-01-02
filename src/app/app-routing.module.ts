@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { HomeComponent } from "./components/home/home.component";
 import { LoginComponent } from "./components/login/login.component";
 import { SignupComponent } from "./components/signup/signup.component";
 import { RequestResetComponent } from "./components/password/request-reset/request-reset.component";
@@ -23,9 +24,13 @@ import { ProfilePasswordResetComponent } from './components/profile/profile-pass
 import { SettingAccountComponent } from './components/setting/setting-account/setting-account.component';
 import { ProfileLoginComponent } from './components/profile/profile-login/profile-login.component';
 import { ProfileHomeComponent } from './components/profile/profile-home/profile-home.component';
-import { RoleService } from './services/role.service';
 
 const routes: Routes = [
+  {
+    path: "",
+    component: HomeComponent,
+    canActivate: [BeforeLoginService]
+  },
   {
     path: "login",
     component: LoginComponent,

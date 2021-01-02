@@ -34,6 +34,7 @@ import { SettingAccountComponent } from './components/setting/setting-account/se
 import { ProfileLoginComponent } from './components/profile/profile-login/profile-login.component';
 import { ProfileHomeComponent } from './components/profile/profile-home/profile-home.component';
 import { RoleService } from './services/role.service';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { RoleService } from './services/role.service';
     SettingAccountComponent,
     ProfileLoginComponent,
     ProfileHomeComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

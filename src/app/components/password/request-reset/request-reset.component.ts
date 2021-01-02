@@ -28,11 +28,11 @@ export class RequestResetComponent implements OnInit {
   }
 
   handleResponse(res) {
-    console.log(res);
-    this.form.email = null
+    this.error = res.error;
+    $("#errorEmail").show();
   }
   handleError(error) {
-    this.error = error.error.errors;
+    this.error = error.error.error;
     $("#errorEmail").show();
   }
 
