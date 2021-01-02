@@ -5,7 +5,7 @@ import { HttpClient } from "@angular/common/http";
   providedIn: "root"
 })
 export class YoutubeService {
-  private baseUrl = "http://localhost:8000/api";
+  private baseUrl = "https://youtubekids-api.herokuapp.com/api";
 
   constructor(private http: HttpClient) { }
   login(data) {
