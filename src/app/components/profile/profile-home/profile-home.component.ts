@@ -45,12 +45,13 @@ export class ProfileHomeComponent implements OnInit {
     this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(newUrl);
     return this.urlSafe;
   }
-  onKeydown() {
-    this.text = $("#search").val();
-    if (this.text.length > 3) {
-      let data = { id: this.id_profile, search: this.text };
+  change(e) {
+    e.preventDefault();
+    const value = e.target.value;
+    if (value.length > 3) {
+      let data = { id: this.id_profile, search: value };
       this.videoSearchProfile(data);
-    }else if(this.text.length <= 3){
+    }else if(value.length <= 3){
       this.videos = null;
     }
   }

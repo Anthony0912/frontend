@@ -14,10 +14,7 @@ export class AuthService {
   }
 
   isValidOptionNavbarRole(){
-    console.log(this.Token.payload(this.Token.get())['role']);
-    console.log(this.Token.loggedIn());
-    
-    if (this.Token.loggedIn()) {
+   if (this.Token.loggedIn()) {
       return this.Token.payload(this.Token.get())['role'] == 'adult' ? true : false;
     }
   }

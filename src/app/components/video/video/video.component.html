@@ -1,7 +1,7 @@
 <div class="wrapper fadeIn">
   <div class="col-md-12">
     <a routerLink="video-create" class="btn btn-success ml-3 mt-2 float-right">Add video</a>
-    <input type="text" id="search" class="col-md-4 fadeIn third float-right mb-4" placeholder="Search" (keydown)="onKeydown()">
+    <input type="text" id="search" class="col-md-4 fadeIn third float-right mb-4" placeholder="Search"  (input)="change($event)">
   </div>
   <div class="row">
     <div class="col-lg-6 col-xs-12 mb-2" *ngFor="let video of videos;">
@@ -37,12 +37,12 @@
       </div>
     </div>
   </div>
-  <div class="center col-12" id="errorVideos" *ngIf="videos?.length === 0 && text?.length > 3">
+  <div class="center col-12" id="errorVideos" *ngIf="videos?.length === 0">
     <div class="wrapper fadeIn">
       <div id="formContent fadeIn first mt-2">
         <div class="">
           <div class="container">
-            <p class="lead">Not data related to <span class="text-danger">{{ text }}</span></p>
+            <p class="lead">Not data related</p>
           </div>
         </div>
       </div>

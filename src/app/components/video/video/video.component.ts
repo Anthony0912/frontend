@@ -21,7 +21,6 @@ export class VideoComponent implements OnInit {
   public status = null;
   public id_user = null;
   public video_search = null;
-  public text = "";
 
   constructor(
     private Youtube: YoutubeService,
@@ -101,12 +100,13 @@ export class VideoComponent implements OnInit {
     });
   }
 
-  onKeydown() {
-    this.text = $("#search").val();
-    if (this.text.length > 3) {
-      let data = { id: this.id_user, search: this.text };
+  change(e) {
+    e.preventDefault();
+    const value = e.target.value;
+    if (value.length > 3) {
+      let data = { id: this.id_user, search: value };
       this.videoSearch(data);
-    }else if(this.text.length === 0){
+    }else if(value.length === 0){
       this.videoShow();
     }
   }
@@ -121,7 +121,7 @@ export class VideoComponent implements OnInit {
     console.log(data);
   }
   handleError(error) {
-    this.error = error.error.errors;
+    this.error = error.error.error;
   }
   
 }

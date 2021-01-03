@@ -1,7 +1,7 @@
 <div class="wrapper fadeIn">
   <div class="sidenav">
     <div class="col-md-12">
-      <input type="text" id="search" class="fadeIn third mt-2" placeholder="Search video" (keydown)="onKeydown()">
+      <input type="text" id="search" class="fadeIn third mt-2" placeholder="Search video" (input)="change($event)">
     </div>
     <div *ngFor="let playlist of playlists;">
       <hr>
@@ -22,12 +22,12 @@
         </div>
       </div>
     </div>
-    <div class="center col-12" id="errorVideos" *ngIf="text?.length > 3 && videos?.length == 0">
+    <div class="center col-12" id="errorVideos" *ngIf="videos?.length == 0">
       <div class="wrapper fadeIn">
         <div id="formContent fadeIn first mt-2">
           <div class="">
             <div class="container">
-              <p class="lead">Not data related to <span class="text-danger">{{ text }}</span></p>
+              <p class="lead">Not data related</p>
             </div>
           </div>
         </div>
