@@ -38,7 +38,9 @@ export class PlaylistVideoComponent implements OnInit {
     });
   }
   ngUrlSafe(url) {
-    this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    const array = url.split("=");
+    const newUrl = `https://www.youtube.com/embed/${array[1]}` 
+    this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(newUrl);
     return this.urlSafe;
   }
 
